@@ -31,25 +31,25 @@ const team = [
   {
     name: "Dr. Timmy Cheng",
     role: "Lecturer",
-    image: "/images/team/Timmy-scaled.jpg",
+    image: "/images/team/Timmy-scaled.jpg?v=20260623",
     note: "Lecturer focusing on studio pedagogy and hands-on project supervision.",
   },
   {
     name: "Dr. Ryan Wang",
     role: "Lecturer",
-    image: "/images/team/Ryan.jpg",
+    image: "/images/team/Ryan.jpg?v=20260623",
     note: "Leads modules in collaborative systems and team-based design practice.",
   },
   {
     name: "Dr. Edwin Dung",
     role: "Lecturer",
-    image: "/images/team/Edwin.jpg",
+    image: "/images/team/Edwin.jpg?v=20260623",
     note: "Specialises in prototype development and reflective assessment in studio courses.",
   },
   {
     name: "Mr. Kyle He",
     role: "Assistant Lecturer",
-    image: "/images/team/Kyle.jpg",
+    image: "/images/team/Kyle.jpg?v=20260623",
     note: "Supports lab sessions, peer learning coordination and technical workshops.",
   },
 ];
@@ -72,7 +72,7 @@ export default function Home() {
           <div className="flex items-center">
             {/* Logo image on the left — swap the file later if needed */}
             <a href="#top" className="flex items-center">
-              <Image src="/images/Logo/hkuengglogo.png" alt="HKU ENGG" width={160} height={36} className="h-9 w-auto object-contain" priority />
+              <Image src="/images/Logo/hkuengglogo.png?v=20260623" alt="HKU ENGG" width={160} height={36} className="h-9 w-auto object-contain" priority />
             </a>
           </div>
 
@@ -123,7 +123,7 @@ export default function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src="/images/course/20250707014_Pilot_Workshop-scaled.jpg"
+              src="/images/course/20250707014_Pilot_Workshop-scaled.jpg?v=20260623"
               alt="HKU Engineering active learning studio"
               fill
               priority
