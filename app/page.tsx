@@ -123,7 +123,7 @@ export default function Home() {
         >
           <div className="absolute inset-0">
             <Image
-              src="/images/course/20250707014_Pilot_Workshop-scaled.jpg?v=20260623"
+              src="/images/Course/20250707014_Pilot_Workshop-scaled.jpg?v=20260623"
               alt="HKU Engineering active learning studio"
               fill
               priority
