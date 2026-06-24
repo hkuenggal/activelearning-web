@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 
 const navigation = [
@@ -18,12 +19,14 @@ const courses = [
     description:
       "An introductory studio course where student teams explore engineering problems through iterative design and prototyping.",
     status: "ENGG1101",
+    detailsHref: "/engg1101",
   },
   {
     title: "Engineering Challenge 2",
     description:
       "A project-based course in which teams undertake a semester-long engineering challenge, focusing on applied design, prototyping, and structured reflection.",
     status: "ENGG2202",
+    detailsHref: undefined,
   },
 ];
 
@@ -218,7 +221,7 @@ export default function Home() {
           </motion.div>
 
           <div className="grid gap-6 md:grid-cols-2">
-            {courses.map((course, index) => (
+            {courses.map((course) => (
               <motion.article
                 key={course.title}
                 initial="rest"
@@ -236,7 +239,13 @@ export default function Home() {
                 <h3 className="mt-8 text-2xl font-semibold leading-tight text-slate-950">{course.title}</h3>
                 <p className="mt-4 text-sm leading-7 text-slate-700">{course.description}</p>
                 <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-slate-950">
-                  <span className="rounded-full border border-slate-200 px-3 py-2">View details</span>
+                  {course.detailsHref ? (
+                    <Link href={course.detailsHref} className="rounded-full border border-slate-200 px-3 py-2 transition hover:border-slate-300 hover:bg-slate-50">
+                      View details
+                    </Link>
+                  ) : (
+                    <span className="rounded-full border border-slate-200 px-3 py-2">View details</span>
+                  )}
                 </div>
               </motion.article>
             ))}
