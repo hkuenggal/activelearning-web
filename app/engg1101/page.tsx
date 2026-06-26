@@ -1,6 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const notionModuleUrl =
+  "https://engineering-challenges.notion.site/ebd/22ad72aefb8581a48c74eb9c50524d0e?v=22ad72aefb858120a674000cdbbf0db7";
+
 const moduleHighlights = [
   "Studio-based teamwork around an open-ended engineering challenge.",
   "Iterative design, prototyping, testing and reflection throughout the semester.",
@@ -69,6 +72,31 @@ export default function Engg1101Page() {
             <p className="mt-6 max-w-2xl text-base leading-8 text-slate-100/85 sm:text-lg">
               An introductory active learning module where student teams practise engineering design by framing problems, building prototypes and reflecting on evidence from tests.
             </p>
+          </div>
+        </section>
+
+        <section className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/90 p-4 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)] sm:p-6">
+          <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
+              Module Content
+            </p>
+            <a
+              href={notionModuleUrl}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex w-full items-center justify-center rounded-full border border-slate-200 px-4 py-2 text-sm font-semibold text-slate-800 transition hover:border-slate-300 hover:bg-slate-50 sm:w-auto"
+            >
+              Open module content in Notion
+            </a>
+          </div>
+          <div className="overflow-hidden rounded-[1.5rem] border border-slate-200 bg-slate-50">
+            <iframe
+              src={notionModuleUrl}
+              title="ENGG1101 module content in Notion"
+              className="h-[72vh] min-h-[520px] w-full bg-white sm:min-h-[640px]"
+              frameBorder="0"
+              allowFullScreen
+            />
           </div>
         </section>
 
