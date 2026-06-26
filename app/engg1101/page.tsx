@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+const imageBasePath = process.env.NODE_ENV === "production" ? "/activelearning-web" : "";
+
 const notionModuleUrl =
   "https://engineering-challenges.notion.site/ebd/22ad72aefb8581a48c74eb9c50524d0e?v=22ad72aefb858120a674000cdbbf0db7";
 
@@ -31,7 +33,7 @@ export default function Engg1101Page() {
         <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 sm:px-8">
           <Link href="/" className="flex items-center">
             <Image
-              src="/images/Logo/hkuengglogo.png?v=20260623"
+              src={`${imageBasePath}/images/Logo/hkuengglogo.png?v=20260623`}
               alt="HKU ENGG"
               width={160}
               height={36}
@@ -52,7 +54,7 @@ export default function Engg1101Page() {
         <section className="relative overflow-hidden rounded-[2rem] bg-slate-950/5">
           <div className="absolute inset-0">
             <Image
-              src="/images/Course/20250707014_Pilot_Workshop-scaled.jpg?v=20260623"
+              src={`${imageBasePath}/images/Course/20250707014_Pilot_Workshop-scaled.jpg?v=20260623`}
               alt="Engineering students working in an active learning studio"
               fill
               priority
