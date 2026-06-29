@@ -4,17 +4,17 @@ import Image from "next/image";
 import Link from "next/link";
 import { motion } from "framer-motion";
 
+const engg1101NotionUrl =
+  "https://engineering-challenges.notion.site/ENGG1101-Engineering-Challenges-247d72aefb858052a816d5232746d4db?source=copy_link";
+
 const navigation = [
   { label: "About", href: "#about" },
   { label: "Team", href: "#team" },
-  { label: "ENGG1101", href: "#engg1101" },
+  { label: "ENGG1101", href: engg1101NotionUrl },
   { label: "Timetable", href: "#timetable" },
   { label: "Consultation", href: "#consultation" },
   { label: "Contact", href: "#contact" },
 ];
-
-const engg1101NotionUrl =
-  "https://engineering-challenges.notion.site/ENGG1101-Engineering-Challenges-247d72aefb858052a816d5232746d4db?source=copy_link";
 
 const courses = [
   {
@@ -87,7 +87,12 @@ export default function Home() {
             <ul className="hidden items-center gap-8 text-sm text-slate-800 font-semibold md:flex">
               {navigation.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} className="transition-colors hover:text-slate-950">
+                  <a
+                    href={item.href}
+                    className="transition-colors hover:text-slate-950"
+                    target={item.href.startsWith("http") ? "_blank" : undefined}
+                    rel={item.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  >
                     {item.label}
                   </a>
                 </li>
