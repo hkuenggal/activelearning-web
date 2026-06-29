@@ -11,6 +11,7 @@ const navigation = [
   { label: "About", href: "#about" },
   { label: "Team", href: "#team" },
   { label: "ENGG1101", href: engg1101NotionUrl },
+  { label: "ENGG2202", href: "/engg2202" },
   { label: "Timetable", href: "#timetable" },
   { label: "Consultation", href: "#consultation" },
   { label: "Contact", href: "#contact" },
@@ -29,7 +30,7 @@ const courses = [
     description:
       "A project-based course in which teams undertake a semester-long engineering challenge, focusing on applied design, prototyping, and structured reflection.",
     status: "ENGG2202",
-    detailsHref: undefined,
+    detailsHref: "/engg2202",
   },
 ];
 
