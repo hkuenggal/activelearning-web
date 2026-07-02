@@ -3,6 +3,7 @@
 import type { ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
+import { imagePath } from "../lib/image-path";
 
 const engg1101NotionUrl =
   "https://engineering-challenges.notion.site/ENGG1101-Engineering-Challenges-247d72aefb858052a816d5232746d4db?source=copy_link";
@@ -25,7 +26,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="/images/Logo/hkuengglogo.png"
+                src={imagePath("/images/Logo/hkuengglogo.png")}
                 alt="HKU ENGG"
                 width={160}
                 height={36}

@@ -3,54 +3,55 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import SiteShell from "../components/site-shell";
+import { imagePath } from "../lib/image-path";
 
 const team = [
   {
     name: "Dr. Timmy Cheng",
     role: "Lecturer",
-    image: "/images/team/Timmy-scaled.jpg",
+    image: imagePath("/images/team/Timmy-scaled.jpg"),
     note: "Lecturer focusing on studio pedagogy and hands-on project supervision.",
   },
   {
     name: "Dr. Ryan Wang",
     role: "Lecturer",
-    image: "/images/team/Ryan.jpg",
+    image: imagePath("/images/team/Ryan.jpg"),
     note: "Leads modules in collaborative systems and team-based design practice.",
   },
   {
     name: "Dr. Edwin Dung",
     role: "Lecturer",
-    image: "/images/team/Edwin.jpg",
+    image: imagePath("/images/team/Edwin.jpg"),
     note: "Specialises in prototype development and reflective assessment in studio courses.",
   },
   {
     name: "Mr. Kyle He",
     role: "Assistant Lecturer",
-    image: "/images/team/Kyle.jpg",
+    image: imagePath("/images/team/Kyle.jpg"),
     note: "Supports lab sessions, peer learning coordination and technical workshops.",
   },
   {
     name: "Kelvin",
     role: "Teaching Assistant",
-    image: "/images/team/kelvin.jpg",
+    image: imagePath("/images/team/kelvin.jpg"),
     note: "Supports tutorials, lab sessions and student questions.",
   },
   {
     name: "Sum",
     role: "Teaching Assistant",
-    image: "/images/team/sum.jpg",
+    image: imagePath("/images/team/sum.jpg"),
     note: "Supports tutorials, lab sessions and student questions.",
   },
   {
     name: "Henry",
     role: "Teaching Assistant",
-    image: "/images/team/henry.jpg",
+    image: imagePath("/images/team/henry.jpg"),
     note: "Supports tutorials, lab sessions and student questions.",
   },
   {
     name: "Karlos",
     role: "Teaching Assistant",
-    image: "/images/team/karlos.jpg",
+    image: imagePath("/images/team/karlos.jpg"),
     note: "Supports tutorials, lab sessions and student questions.",
   },
 ];
