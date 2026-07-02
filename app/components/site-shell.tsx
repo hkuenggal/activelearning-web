@@ -25,7 +25,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <div className="flex items-center">
             <Link href="/" className="flex items-center">
               <Image
-                src="images/Logo/hkuengglogo.png?v=20260623"
+                src="/images/Logo/hkuengglogo.png?v=20260623"
                 alt="HKU ENGG"
                 width={160}
                 height={36}

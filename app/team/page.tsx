@@ -8,25 +8,25 @@ const team = [
   {
     name: "Dr. Timmy Cheng",
     role: "Lecturer",
-    image: "images/team/Timmy-scaled.jpg?v=20260623",
+    image: "/images/team/Timmy-scaled.jpg?v=20260623",
     note: "Lecturer focusing on studio pedagogy and hands-on project supervision.",
   },
   {
     name: "Dr. Ryan Wang",
     role: "Lecturer",
-    image: "images/team/Ryan.jpg?v=20260623",
+    image: "/images/team/Ryan.jpg?v=20260623",
     note: "Leads modules in collaborative systems and team-based design practice.",
   },
   {
     name: "Dr. Edwin Dung",
     role: "Lecturer",
-    image: "images/team/Edwin.jpg?v=20260623",
+    image: "/images/team/Edwin.jpg?v=20260623",
     note: "Specialises in prototype development and reflective assessment in studio courses.",
   },
   {
     name: "Mr. Kyle He",
     role: "Assistant Lecturer",
-    image: "images/team/Kyle.jpg?v=20260623",
+    image: "/images/team/Kyle.jpg?v=20260623",
     note: "Supports lab sessions, peer learning coordination and technical workshops.",
   },
 ];
