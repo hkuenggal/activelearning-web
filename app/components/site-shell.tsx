@@ -13,7 +13,7 @@ const navigation = [
   { label: "ENGG1101", href: engg1101NotionUrl },
   { label: "ENGG2202", href: "/engg2202" },
   { label: "Timetable", href: "/#timetable" },
-  { label: "Consultation", href: "/#consultation" },
+  { label: "Consultation", href: "/consultation" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];
@@ -60,7 +60,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           </nav>
 
           <div className="ml-6 flex items-center gap-4">
-            <a href="#" aria-label="Instagram" className="text-slate-800 hover:text-slate-950">
+            <a href="https://www.instagram.com/hkuenggal/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="text-slate-800 hover:text-slate-950">
               <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round" className="h-5 w-5">
                 <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
                 <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
@@ -73,7 +73,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                 <polyline points="3 7 12 13 21 7"></polyline>
               </svg>
             </a>
-            <a href="https://github.com/hkuenggal/activelearning-web" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-800 hover:text-slate-950">
+            <a href="https://github.com/hkuenggal" target="_blank" rel="noopener noreferrer" aria-label="GitHub" className="text-slate-800 hover:text-slate-950">
               <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round">
                 <path d="M12 2C6.477 2 2 6.477 2 12c0 4.418 2.865 8.167 6.839 9.489.5.092.682-.217.682-.483 0-.237-.009-.868-.013-1.703-2.782.605-3.369-1.342-3.369-1.342-.454-1.157-1.11-1.466-1.11-1.466-.908-.62.069-.607.069-.607 1.004.07 1.532 1.032 1.532 1.032.892 1.529 2.341 1.088 2.91.832.091-.647.35-1.088.636-1.339-2.22-.252-4.555-1.11-4.555-4.944 0-1.091.39-1.983 1.03-2.681-.103-.253-.446-1.27.098-2.647 0 0 .84-.269 2.75 1.025A9.564 9.564 0 0 1 12 6.844c.85.004 1.705.115 2.504.337 1.909-1.294 2.748-1.025 2.748-1.025.546 1.377.203 2.394.1 2.647.642.698 1.029 1.59 1.029 2.681 0 3.842-2.338 4.688-4.566 4.935.359.309.679.92.679 1.852 0 1.336-.012 2.415-.012 2.744 0 .268.18.579.688.481C19.138 20.165 22 16.418 22 12c0-5.523-4.477-10-10-10z" />
               </svg>

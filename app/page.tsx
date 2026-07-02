@@ -16,7 +16,7 @@ const courses = [
     description:
       "An introductory studio course where student teams explore engineering problems through iterative design and prototyping.",
     status: "ENGG1101",
-    detailsHref: "/engg1101",
+    detailsHref: engg1101NotionUrl,
   },
   {
     title: "Engineering Challenge 2",
@@ -69,6 +69,14 @@ const heroImages = [
   {
     src: imagePath("/images/Course/timmy_lecture.jpg"),
     alt: "Teaching session in the active learning environment",
+  },
+  {
+    src: imagePath("/images/Course/with_TO1.jpg"),
+    alt: "Students and teaching team collaborating in a workshop session",
+  },
+  {
+    src: imagePath("/images/Course/with_TO2.jpg"),
+    alt: "Active learning team photo during course activities",
   },
 ];
 
@@ -136,8 +144,12 @@ export default function Home() {
 
               <div className="space-y-6">
                 <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-                  <span className="block">Tackle Challenges.</span>
-                  <span className="block">Innovate for the World.</span>
+                  <span className="block bg-gradient-to-r from-cyan-200 via-sky-300 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(56,189,248,0.18)]">
+                    Tackle Challenges.
+                  </span>
+                  <span className="block bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(251,146,60,0.18)]">
+                    Innovate for the World.
+                  </span>
                 </h1>
 
                 <p className="max-w-2xl text-base leading-8 text-slate-100/85 sm:text-lg">
@@ -162,77 +174,93 @@ export default function Home() {
                 </a>
               </div>
             </div>
+
+            {heroImages.length > 1 ? (
+              <div className="pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-center px-6 sm:bottom-8">
+                <div
+                  className="pointer-events-auto flex items-center gap-1.5"
+                  aria-label="Hero image position indicators"
+                >
+                  {heroImages.map((image, index) => {
+                    const isActive = index === heroIndex;
+
+                    return (
+                      <button
+                        key={image.src}
+                        type="button"
+                        onClick={() => setHeroIndex(index)}
+                        aria-label={`Go to slide ${index + 1}`}
+                        aria-current={isActive ? "true" : undefined}
+                        className={`h-2 rounded-full transition-all duration-300 ${
+                          isActive
+                            ? "w-4 bg-white"
+                            : "w-2 bg-white/55 hover:bg-white/80"
+                        }`}
+                      />
+                    );
+                  })}
+                </div>
+              </div>
+            ) : null}
           </div>
         </motion.section>
 
-        <section
+        <motion.section
           id="about"
-          className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)]"
+          className="scroll-mt-28 mt-16 overflow-hidden rounded-[2.25rem] border border-slate-200/80 bg-white/95 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)]"
+          whileHover={{ scale: 1.01, y: -2 }}
+          transition={{ duration: 0.22, ease: "easeOut" }}
         >
           <motion.div
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, amount: 0.2 }}
-            transition={{ duration: 0.7 }}
+            transition={{ duration: 0.75, ease: "easeOut" }}
             variants={fadeIn}
-            className="space-y-6"
+            className="grid gap-8 p-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:p-10"
           >
-            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
-              About
-            </p>
-
-            <div className="space-y-4 sm:space-y-6">
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                Empowering Engineering Students through Active Learning
-              </h2>
-
-              <p className="max-w-[72ch] text-base leading-8 text-slate-700 lg:max-w-[78ch]">
-                We help students turn bold ideas into real-world impact through
-                hands-on, team-based projects. Every challenge is a chance to
-                create, test, and grow. By building together, students learn
-                to lead with curiosity, solve problems with purpose, and shape
-                a better future—one prototype at a time.
+            <div className="space-y-5 lg:pt-2">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
+                About
               </p>
-            </div>
-          </motion.div>
 
-          <div className="mt-10 grid gap-5 md:grid-cols-3">
-            {[
-              {
-                title: "Design-led learning",
-                content:
-                  "Studio practice, rapid prototyping and curated critique are central to how students explore engineering problems.",
-              },
-              {
-                title: "Integrated technology",
-                content:
-                  "Hands-on modules combine physical systems, digital design and academic reflection for a richer classroom experience.",
-              },
-              {
-                title: "Thoughtful structure",
-                content:
-                  "Clear milestones, collaborative check-ins and focused project time help students stay confident with complex material.",
-              },
-            ].map((item, index) => (
-              <motion.article
-                key={item.title}
-                whileInView="visible"
-                initial="hidden"
-                viewport={{ once: true, amount: 0.3 }}
-                transition={{ duration: 0.6, delay: 0.05 * index }}
-                variants={fadeIn}
-                className="rounded-[1.75rem] border border-slate-200/80 bg-[#f8f5f0] p-6"
-              >
-                <h3 className="text-lg font-semibold text-slate-950">
-                  {item.title}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-slate-700">
-                  {item.content}
+              <div className="space-y-4 sm:space-y-5">
+                <h2 className="max-w-xl text-[1.95rem] font-semibold tracking-tight text-slate-950 leading-[1.08] sm:text-[2.35rem] lg:text-[2.55rem]">
+                  <span className="block">Empowering Engineering Students through</span>
+                  <span className="block text-[#1e3a8a]">Active Learning.</span>
+                </h2>
+
+                <p className="max-w-[62ch] text-base leading-8 text-slate-700">
+                  We help students turn bold ideas into real-world impact through
+                  hands-on, team-based projects. Every challenge is a chance to
+                  create, test, and grow. By building together, students learn
+                  to lead with curiosity, solve problems with purpose, and shape
+                  a better future—one prototype at a time.
                 </p>
-              </motion.article>
-            ))}
-          </div>
-        </section>
+              </div>
+            </div>
+
+            <motion.div
+              whileInView="visible"
+              initial="hidden"
+              viewport={{ once: true, amount: 0.25 }}
+              transition={{ duration: 0.8, ease: "easeOut" }}
+              variants={fadeIn}
+              className="group overflow-hidden rounded-[2rem] bg-slate-100 shadow-[0_24px_60px_-48px_rgba(15,23,42,0.22)]"
+            >
+              <div className="relative aspect-[4/3] min-h-[320px] lg:aspect-[16/10]">
+                <Image
+                  src={imagePath("/images/Course/studentgroup.jpg")}
+                  alt="Student group working together in an engineering active learning session"
+                  fill
+                  sizes="(min-width: 1024px) 58vw, 100vw"
+                  className="object-cover object-center transition-transform duration-300 ease-out group-hover:scale-[1.04]"
+                />
+                <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/20 via-transparent to-transparent" />
+              </div>
+            </motion.div>
+          </motion.div>
+        </motion.section>
 
         <section id="courses" className="mt-16 space-y-10">
           <motion.div
@@ -250,12 +278,17 @@ export default function Home() {
             <div className="space-y-3 sm:flex sm:items-end sm:justify-between sm:gap-6">
               <div>
                 <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Studio modules, course focus and cohort momentum.
+                  Active learning through real{" "}
+                  <span className="text-[#0f4d2e]">engineering challenges.</span>
                 </h2>
 
-                <p className="max-w-2xl text-base leading-8 text-slate-700">
-                  The curriculum is presented as a set of active modules with
-                  clear status, course goals and structured time for teamwork.
+                <p className="mt-3 max-w-4xl text-[0.98rem] leading-7 text-slate-700 lg:max-w-5xl">
+                  <span className="block whitespace-nowrap">
+                    From ENGG1101 to ENGG2202, students progress from introductory design studios to applied engineering projects, learning by doing as teams iterate,
+                  </span>
+                  <span className="block">
+                    prototype and reflect their way through authentic problems.
+                  </span>
                 </p>
               </div>
             </div>
@@ -269,27 +302,59 @@ export default function Home() {
                 whileHover="hover"
                 animate="rest"
                 variants={cardHover}
-                className="group overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white p-8 shadow-[0_24px_60px_-48px_rgba(15,23,42,0.18)] transition"
+                className={`group overflow-hidden rounded-[2rem] border p-8 shadow-[0_24px_60px_-48px_rgba(15,23,42,0.18)] transition ${
+                  course.status === "ENGG2202"
+                    ? "border-slate-800 bg-slate-950"
+                    : "border-slate-200/80 bg-white"
+                }`}
               >
                 <div className="flex items-center justify-between gap-4">
-                  <span className="text-sm font-semibold uppercase tracking-[0.22em] text-slate-900">
+                  <span
+                    className={`text-sm font-semibold uppercase tracking-[0.22em] ${
+                      course.status === "ENGG2202"
+                        ? "text-slate-200"
+                        : "text-slate-900"
+                    }`}
+                  >
                     {course.status}
                   </span>
                 </div>
 
-                <h3 className="mt-8 text-2xl font-semibold leading-tight text-slate-950">
+                <h3
+                  className={`mt-8 text-2xl font-semibold leading-tight ${
+                    course.status === "ENGG2202"
+                      ? "text-white"
+                      : "text-slate-950"
+                  }`}
+                >
                   {course.title}
                 </h3>
 
-                <p className="mt-4 text-sm leading-7 text-slate-700">
+                <p
+                  className={`mt-4 text-sm leading-7 ${
+                    course.status === "ENGG2202"
+                      ? "text-slate-300"
+                      : "text-slate-700"
+                  }`}
+                >
                   {course.description}
                 </p>
 
-                <div className="mt-8 flex items-center gap-2 text-sm font-semibold text-slate-950">
+                <div
+                  className={`mt-8 flex items-center gap-2 text-sm font-semibold ${
+                    course.status === "ENGG2202"
+                      ? "text-white"
+                      : "text-slate-950"
+                  }`}
+                >
                   {course.detailsHref?.startsWith("http") ? (
                     <a
                       href={course.detailsHref}
-                      className="rounded-full border border-slate-200 px-3 py-2 transition hover:border-slate-300 hover:bg-slate-50"
+                      className={`rounded-full border px-3 py-2 transition ${
+                        course.status === "ENGG2202"
+                          ? "border-white bg-white text-slate-950 hover:bg-slate-100 hover:border-slate-100"
+                          : "border-slate-950 bg-slate-950 text-white hover:bg-slate-800 hover:border-slate-800"
+                      }`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -298,12 +363,22 @@ export default function Home() {
                   ) : course.detailsHref ? (
                     <Link
                       href={course.detailsHref}
-                      className="rounded-full border border-slate-200 px-3 py-2 transition hover:border-slate-300 hover:bg-slate-50"
+                      className={`rounded-full border px-3 py-2 transition ${
+                        course.status === "ENGG2202"
+                          ? "border-white bg-white text-slate-950 hover:bg-slate-100 hover:border-slate-100"
+                          : "border-slate-950 bg-slate-950 text-white hover:bg-slate-800 hover:border-slate-800"
+                      }`}
                     >
                       View details
                     </Link>
                   ) : (
-                    <span className="rounded-full border border-slate-200 px-3 py-2">
+                    <span
+                      className={`rounded-full border px-3 py-2 ${
+                        course.status === "ENGG2202"
+                          ? "border-white bg-white text-slate-950"
+                          : "border-slate-950 bg-slate-950 text-white"
+                      }`}
+                    >
                       View details
                     </span>
                   )}

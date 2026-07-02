@@ -132,7 +132,8 @@ export default function Home() {
           animate="visible"
           transition={{ duration: 0.7, ease: "easeOut" }}
           variants={fadeIn}
-          className="relative overflow-hidden rounded-[2rem] bg-slate-950/5"
+          whileHover={{ scale: 1.01, y: -2 }}
+          className="relative overflow-hidden rounded-[2rem] bg-slate-950/5 transition-transform duration-200 ease-out"
         >
           <div className="absolute inset-0">
             <Image
@@ -224,7 +225,7 @@ export default function Home() {
                   Studio modules, course focus and cohort momentum.
                 </h2>
                 <p className="max-w-2xl text-base leading-8 text-slate-700">
-                  The curriculum is presented as a set of active modules with clear status, course goals and structured time for teamwork.
+                  From ENGG1101 to ENGG2202, students progress from introductory design studios to applied engineering projects, learning by doing as teams iterate, prototype and reflect their way through authentic problems.
                 </p>
               </div>
             </div>
@@ -271,7 +272,7 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="timetable" className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.18)]">
+        <motion.section id="timetable" className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.18)] transition-transform duration-200 ease-out" whileHover={{ scale: 1.01, y: -2 }} transition={{ duration: 0.22, ease: "easeOut" }}>
           <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7 }} variants={fadeIn} className="space-y-5">
             <div className="space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">Timetable</p>
@@ -330,10 +331,10 @@ export default function Home() {
               ))}
             </div>
           </div>
-        </section>
+        </motion.section>
 
-        <section id="team" className="mt-16">
-          <div className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200/80 bg-white/95 px-8 py-12 shadow-[0_30px_100px_-70px_rgba(15,23,42,0.14)] sm:px-10 sm:py-14">
+        <motion.section id="team" className="mt-16">
+          <motion.div whileHover={{ scale: 1.01, y: -2 }} transition={{ duration: 0.22, ease: "easeOut" }} className="mx-auto max-w-7xl rounded-[2rem] border border-slate-200/80 bg-white/95 px-8 py-12 shadow-[0_30px_100px_-70px_rgba(15,23,42,0.14)] transition-transform duration-200 ease-out sm:px-10 sm:py-14">
             <div className="space-y-8">
               <motion.div initial="hidden" whileInView="visible" viewport={{ once: true, amount: 0.2 }} transition={{ duration: 0.7 }} variants={fadeIn} className="space-y-4 text-left">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">Team</p>
@@ -344,9 +345,9 @@ export default function Home() {
 
               <div className="grid grid-cols-1 gap-8 sm:grid-cols-2 xl:grid-cols-4">
                 {team.map((person) => (
-                  <motion.div key={person.name} initial="rest" whileHover={{ y: -4 }} animate="rest" className="flex flex-col items-center gap-4">
+                  <motion.div key={person.name} initial="rest" whileHover={{ scale: 1.03, y: -4 }} animate="rest" className="flex flex-col items-center gap-4 transition-transform duration-200 ease-out">
                     <div className="relative h-32 w-32 overflow-hidden rounded-full border border-slate-200/70 bg-slate-100 shadow-sm sm:h-36 sm:w-36">
-                      <Image src={person.image} alt={person.name} width={144} height={144} className="h-full w-full object-cover" />
+                      <Image src={person.image} alt={person.name} width={144} height={144} className="h-full w-full object-cover transition-transform duration-300 ease-out hover:scale-105" />
                     </div>
                     <div className="text-center">
                       <p className="whitespace-nowrap text-lg font-semibold leading-tight text-slate-950">{person.name}</p>
@@ -356,12 +357,12 @@ export default function Home() {
                 ))}
               </div>
             </div>
-          </div>
-        </section>
+          </motion.div>
+        </motion.section>
 
         <section id="contact" className="mt-10">
           <div className="mx-auto max-w-7xl">
-            <div className="rounded-[1.75rem] border border-slate-200/80 bg-slate-950/95 px-8 py-8 text-slate-200 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.18)] sm:px-10 sm:py-10">
+            <motion.div whileHover={{ scale: 1.01, y: -2 }} transition={{ duration: 0.22, ease: "easeOut" }} className="rounded-[1.75rem] border border-slate-200/80 bg-slate-950/95 px-8 py-8 text-slate-200 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.18)] transition-transform duration-200 ease-out sm:px-10 sm:py-10">
               <div className="grid gap-10 md:grid-cols-[0.95fr_1.05fr] md:items-start">
                 <div className="space-y-4">
                   <p className="text-xs uppercase tracking-[0.28em] text-slate-400">Contact Us</p>
@@ -376,7 +377,7 @@ export default function Home() {
                   <p>Pokfulam, Hong Kong</p>
                 </div>
               </div>
-            </div>
+            </motion.div>
           </div>
         </section>
         <div className="mt-6 text-center text-xs text-slate-500">
