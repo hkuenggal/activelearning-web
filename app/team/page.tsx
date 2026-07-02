@@ -86,7 +86,7 @@ export default function TeamPage() {
                       <Image src={person.image} alt={person.name} width={144} height={144} className="h-full w-full object-cover" />
                     </div>
                     <div className="text-center">
-                      <p className="whitespace-nowrap text-lg font-semibold leading-tight text-slate-950">{person.name}</p>
+                      <p className="text-lg font-semibold leading-tight text-slate-950">{person.name}</p>
                       <p className="mt-2 text-sm font-medium text-slate-600">{person.role}</p>
                     </div>
                   </motion.div>

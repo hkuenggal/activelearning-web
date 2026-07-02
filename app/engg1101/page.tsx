@@ -298,37 +298,39 @@ export default function Home() {
             </div>
           </motion.div>
 
-          <div className="mt-8 overflow-hidden rounded-[1.75rem] border border-slate-200 bg-slate-50">
-            <div className="grid grid-cols-[1.4fr_0.8fr_0.8fr_1fr] gap-px bg-slate-200 text-slate-500 text-sm font-semibold uppercase tracking-[0.16em]">
-              {['Time', 'Room', 'Session', 'Instructor'].map((heading) => (
-                <div key={heading} className="bg-slate-100 px-4 py-4">
-                  {heading}
-                </div>
-              ))}
-            </div>
-            <div className="divide-y divide-slate-200 bg-white">
-              {[
-                { time: '09:00 – 11:00', room: 'Design Lab 1', session: 'Studio Review', instructor: 'Dr. Olivia Chan', tone: 'sky' },
-                { time: '11:30 – 13:30', room: 'Project Space', session: 'Team Critique', instructor: 'Prof. Marcus Lee', tone: 'emerald' },
-                { time: '14:00 – 16:00', room: 'Innovation Hub', session: 'Prototype Lab', instructor: 'Ms. Sara Wong', tone: 'amber' },
-              ].map((item) => (
-                <div key={item.time} className="grid grid-cols-[1.4fr_0.8fr_0.8fr_1fr] gap-px px-4 py-5 text-sm text-slate-700 sm:px-5">
-                  <div className="bg-white px-3 py-2">
-                    <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] ${
-                      item.tone === 'sky'
-                        ? 'bg-sky-50 text-sky-700'
-                        : item.tone === 'emerald'
-                        ? 'bg-emerald-50 text-emerald-700'
-                        : 'bg-amber-50 text-amber-700'
-                    }`}>
-                      {item.time}
-                    </span>
+          <div className="mt-8 overflow-x-auto rounded-[1.75rem] border border-slate-200 bg-slate-50">
+            <div className="min-w-[760px]">
+              <div className="grid grid-cols-[1.4fr_0.8fr_0.8fr_1fr] gap-px bg-slate-200 text-slate-500 text-sm font-semibold uppercase tracking-[0.16em]">
+                {['Time', 'Room', 'Session', 'Instructor'].map((heading) => (
+                  <div key={heading} className="bg-slate-100 px-4 py-4">
+                    {heading}
                   </div>
-                  <div className="bg-white px-3 py-2">{item.room}</div>
-                  <div className="bg-white px-3 py-2">{item.session}</div>
-                  <div className="bg-white px-3 py-2">{item.instructor}</div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <div className="divide-y divide-slate-200 bg-white">
+                {[
+                  { time: '09:00 – 11:00', room: 'Design Lab 1', session: 'Studio Review', instructor: 'Dr. Olivia Chan', tone: 'sky' },
+                  { time: '11:30 – 13:30', room: 'Project Space', session: 'Team Critique', instructor: 'Prof. Marcus Lee', tone: 'emerald' },
+                  { time: '14:00 – 16:00', room: 'Innovation Hub', session: 'Prototype Lab', instructor: 'Ms. Sara Wong', tone: 'amber' },
+                ].map((item) => (
+                  <div key={item.time} className="grid grid-cols-[1.4fr_0.8fr_0.8fr_1fr] gap-px px-4 py-5 text-sm text-slate-700 sm:px-5">
+                    <div className="bg-white px-3 py-2">
+                      <span className={`inline-flex rounded-full px-2.5 py-1 text-xs font-semibold uppercase tracking-[0.18em] ${
+                        item.tone === 'sky'
+                          ? 'bg-sky-50 text-sky-700'
+                          : item.tone === 'emerald'
+                          ? 'bg-emerald-50 text-emerald-700'
+                          : 'bg-amber-50 text-amber-700'
+                      }`}>
+                        {item.time}
+                      </span>
+                    </div>
+                    <div className="bg-white px-3 py-2">{item.room}</div>
+                    <div className="bg-white px-3 py-2">{item.session}</div>
+                    <div className="bg-white px-3 py-2">{item.instructor}</div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </motion.section>
@@ -350,7 +352,7 @@ export default function Home() {
                       <Image src={person.image} alt={person.name} width={144} height={144} className="h-full w-full object-cover transition-transform duration-300 ease-out hover:scale-105" />
                     </div>
                     <div className="text-center">
-                      <p className="whitespace-nowrap text-lg font-semibold leading-tight text-slate-950">{person.name}</p>
+                      <p className="text-lg font-semibold leading-tight text-slate-950">{person.name}</p>
                       <p className="mt-2 text-sm font-medium text-slate-600">{person.role}</p>
                     </div>
                   </motion.div>

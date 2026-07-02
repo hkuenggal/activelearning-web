@@ -111,14 +111,14 @@ const essentials = [
     description:
       "Create impactful systems with creativity, technology, and user needs in mind.",
     icon: "pencil",
-    titleClass: "text-[#7f1d1d]",
+    titleClass: "text-[#a16207]",
   },
   {
     title: "Problem Solving",
     description:
       "Analyze challenges critically and develop practical, effective engineering solutions.",
     icon: "briefcase",
-    titleClass: "text-[#0f172a]",
+    titleClass: "text-[#0284c7]",
   },
   {
     title: "Interdisciplinary Thinking",
@@ -149,6 +149,20 @@ const essentials = [
     titleClass: "text-[#134e4a]",
   },
 ];
+
+function renderCourseTitle(title: string) {
+  const match = /^Engineering Challenge\s+(\d+)$/i.exec(title);
+
+  if (!match) {
+    return title;
+  }
+
+  return (
+    <>
+      Engineering <span className="whitespace-nowrap">Challenge {match[1]}</span>
+    </>
+  );
+}
 
 function EssentialIcon({ type }: { type: string }) {
   const baseClass = "h-6 w-6 text-slate-700";
@@ -277,10 +291,10 @@ export default function Home() {
 
               <motion.div variants={heroTextItem} className="space-y-6">
                 <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
-                  <span className="block bg-gradient-to-r from-cyan-200 via-sky-300 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(56,189,248,0.18)]">
+                  <span className="block bg-gradient-to-r from-cyan-300/80 via-sky-400/80 to-emerald-400/80 bg-clip-text text-transparent">
                     Tackle Challenges.
                   </span>
-                  <span className="block bg-gradient-to-r from-amber-200 via-orange-300 to-rose-300 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(251,146,60,0.18)]">
+                  <span className="block bg-gradient-to-r from-amber-300/80 via-orange-400/80 to-rose-400/80 bg-clip-text text-transparent">
                     Innovate for the World.
                   </span>
                 </h1>
@@ -416,12 +430,10 @@ export default function Home() {
                 </h2>
 
                 <p className="mt-3 max-w-4xl text-[0.98rem] leading-7 text-slate-700 lg:max-w-5xl">
-                  <span className="block whitespace-nowrap">
-                    From ENGG1101 to ENGG2202, students progress from introductory design studios to applied engineering projects, learning by doing as teams iterate,
-                  </span>
-                  <span className="block">
-                    prototype and reflect their way through authentic problems.
-                  </span>
+                  From ENGG1101 to ENGG2202, students progress from introductory
+                  design studios to applied engineering projects, learning by
+                  doing as teams iterate, prototype and reflect their way
+                  through authentic problems.
                 </p>
               </div>
             </div>
@@ -460,7 +472,7 @@ export default function Home() {
                       : "text-slate-950"
                   }`}
                 >
-                  {course.title}
+                  {renderCourseTitle(course.title)}
                 </h3>
 
                 <p
@@ -567,10 +579,10 @@ export default function Home() {
           >
             <div className="space-y-3 text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
-                <span className="text-[#7f1d1d]">Essentials</span>
+                Essentials
               </p>
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-              6 Essentials for Every Engineer
+                6 <span className="text-[#7f1d1d]">Essentials</span> for Every Engineer
               </h2>
             </div>
 
