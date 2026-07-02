@@ -589,7 +589,7 @@ export default function Home() {
                   key={item.title}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{ once: false, amount: 0.25 }}
+                  viewport={{ once: true, amount: 0.25 }}
                   transition={{ duration: 0.55, delay: 0.05 * index }}
                   variants={fadeIn}
                   whileHover={{ scale: 1.01, y: -2 }}
