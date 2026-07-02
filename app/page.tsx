@@ -86,6 +86,133 @@ const heroSlide = {
   exit: { x: "-100%" },
 };
 
+const heroTextContainer = {
+  hidden: {},
+  visible: {
+    transition: {
+      staggerChildren: 0.14,
+      delayChildren: 0.2,
+    },
+  },
+};
+
+const heroTextItem = {
+  hidden: { opacity: 0, y: 26 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.72 },
+  },
+};
+
+const essentials = [
+  {
+    title: "Design & Innovation",
+    description:
+      "Create impactful systems with creativity, technology, and user needs in mind.",
+    icon: "pencil",
+    titleClass: "text-[#7f1d1d]",
+  },
+  {
+    title: "Problem Solving",
+    description:
+      "Analyze challenges critically and develop practical, effective engineering solutions.",
+    icon: "briefcase",
+    titleClass: "text-[#0f172a]",
+  },
+  {
+    title: "Interdisciplinary Thinking",
+    description:
+      "Connect knowledge across fields to tackle complex, real-world problems.",
+    icon: "brain",
+    titleClass: "text-[#1e3a8a]",
+  },
+  {
+    title: "Value & Attitude",
+    description:
+      "Build responsible engineering habits with empathy, ethics, and collaborative mindset.",
+    icon: "globe",
+    titleClass: "text-[#14532d]",
+  },
+  {
+    title: "Communication",
+    description:
+      "Express technical ideas clearly through visuals, writing, and team dialogue.",
+    icon: "network",
+    titleClass: "text-[#581c87]",
+  },
+  {
+    title: "Lifelong Learning",
+    description:
+      "Stay curious, adaptive, and ready to learn from evolving engineering practice.",
+    icon: "book",
+    titleClass: "text-[#134e4a]",
+  },
+];
+
+function EssentialIcon({ type }: { type: string }) {
+  const baseClass = "h-6 w-6 text-slate-700";
+
+  if (type === "pencil") {
+    return (
+      <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M12 20h9" />
+        <path d="M16.5 3.5a2.12 2.12 0 1 1 3 3L7 19l-4 1 1-4Z" />
+      </svg>
+    );
+  }
+
+  if (type === "briefcase") {
+    return (
+      <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <rect x="3" y="7" width="18" height="13" rx="2" />
+        <path d="M8 7V5a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+        <path d="M3 12h18" />
+      </svg>
+    );
+  }
+
+  if (type === "brain") {
+    return (
+      <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d="M9 3a3 3 0 0 0-3 3v1a3 3 0 0 0-2 2.8A3 3 0 0 0 6 13v1a3 3 0 0 0 3 3" />
+        <path d="M15 3a3 3 0 0 1 3 3v1a3 3 0 0 1 2 2.8A3 3 0 0 1 18 13v1a3 3 0 0 1-3 3" />
+        <path d="M9 6h6M9 10h6M9 14h6M12 3v14" />
+      </svg>
+    );
+  }
+
+  if (type === "globe") {
+    return (
+      <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="M3 12h18" />
+        <path d="M12 3a14 14 0 0 1 0 18" />
+        <path d="M12 3a14 14 0 0 0 0 18" />
+      </svg>
+    );
+  }
+
+  if (type === "network") {
+    return (
+      <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="9" />
+        <path d="m7 15 3-5 4 2 3-4" />
+        <circle cx="10" cy="10" r="1" />
+        <circle cx="14" cy="12" r="1" />
+        <circle cx="17" cy="8" r="1" />
+      </svg>
+    );
+  }
+
+  return (
+    <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+      <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+      <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
+    </svg>
+  );
+}
+
 export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
 
@@ -137,12 +264,18 @@ export default function Home() {
           </div>
 
           <div className="relative z-10 mx-auto grid max-w-7xl gap-12 px-6 py-20 sm:px-8 lg:gap-16 lg:py-28">
-            <div className="max-w-3xl space-y-8 text-white">
-              <div className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100/80">
+            <motion.div
+              className="max-w-3xl space-y-8 text-white"
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: false, amount: 0.55 }}
+              variants={heroTextContainer}
+            >
+              <motion.div variants={heroTextItem} className="text-sm font-semibold uppercase tracking-[0.3em] text-slate-100/80">
                 HKU Engineering active learning
-              </div>
+              </motion.div>
 
-              <div className="space-y-6">
+              <motion.div variants={heroTextItem} className="space-y-6">
                 <h1 className="text-4xl font-semibold leading-tight tracking-tight text-white sm:text-5xl">
                   <span className="block bg-gradient-to-r from-cyan-200 via-sky-300 to-emerald-300 bg-clip-text text-transparent drop-shadow-[0_2px_10px_rgba(56,189,248,0.18)]">
                     Tackle Challenges.
@@ -156,9 +289,9 @@ export default function Home() {
                   Design-led learning for engineering practice, studio culture
                   and collaborative innovation.
                 </p>
-              </div>
+              </motion.div>
 
-              <div className="flex flex-col gap-4 sm:flex-row">
+              <motion.div variants={heroTextItem} className="flex flex-col gap-4 sm:flex-row">
                 <a
                   href="#courses"
                   className="inline-flex w-full items-center justify-center rounded-full bg-slate-950/95 px-6 py-3 text-sm font-semibold text-white shadow-[0_16px_40px_-24px_rgba(0,0,0,0.32)] transition hover:bg-slate-900 sm:w-auto"
@@ -172,8 +305,8 @@ export default function Home() {
                 >
                   View Timetable
                 </a>
-              </div>
-            </div>
+              </motion.div>
+            </motion.div>
 
             {heroImages.length > 1 ? (
               <div className="pointer-events-none absolute inset-x-0 bottom-6 flex items-center justify-center px-6 sm:bottom-8">
@@ -214,7 +347,7 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.75, ease: "easeOut" }}
             variants={fadeIn}
             className="grid gap-8 p-8 lg:grid-cols-[0.92fr_1.08fr] lg:items-start lg:p-10"
@@ -243,7 +376,7 @@ export default function Home() {
             <motion.div
               whileInView="visible"
               initial="hidden"
-              viewport={{ once: true, amount: 0.25 }}
+              viewport={{ once: false, amount: 0.25 }}
               transition={{ duration: 0.8, ease: "easeOut" }}
               variants={fadeIn}
               className="group overflow-hidden rounded-[2rem] bg-slate-100 shadow-[0_24px_60px_-48px_rgba(15,23,42,0.22)]"
@@ -266,7 +399,7 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.7 }}
             variants={fadeIn}
             className="space-y-4"
@@ -395,7 +528,7 @@ export default function Home() {
           <motion.div
             initial="hidden"
             whileInView="visible"
-            viewport={{ once: true, amount: 0.2 }}
+            viewport={{ once: false, amount: 0.2 }}
             transition={{ duration: 0.7 }}
             variants={fadeIn}
             className="space-y-5"
@@ -419,6 +552,51 @@ export default function Home() {
                 Class groups, rooms, session times and instructors will be
                 shared once confirmed.
               </p>
+            </div>
+          </motion.div>
+        </section>
+
+        <section className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/92 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)] sm:p-10">
+          <motion.div
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: false, amount: 0.2 }}
+            transition={{ duration: 0.7 }}
+            variants={fadeIn}
+            className="space-y-10"
+          >
+            <div className="space-y-3 text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
+                <span className="text-[#7f1d1d]">Essentials</span>
+              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+              6 Essentials for Every Engineer
+              </h2>
+            </div>
+
+            <div className="grid gap-6 md:grid-cols-3">
+              {essentials.map((item, index) => (
+                <motion.article
+                  key={item.title}
+                  initial="hidden"
+                  whileInView="visible"
+                  viewport={{ once: false, amount: 0.25 }}
+                  transition={{ duration: 0.55, delay: 0.05 * index }}
+                  variants={fadeIn}
+                  whileHover={{ scale: 1.01, y: -2 }}
+                  className="group rounded-[1.5rem] border border-slate-200/80 bg-[#f8fafc] p-6 text-left shadow-[0_20px_45px_-35px_rgba(15,23,42,0.22)] transition"
+                >
+                  <div className="mb-5 flex h-11 w-11 items-center justify-center rounded-xl border border-slate-200 bg-white shadow-[0_10px_25px_-20px_rgba(15,23,42,0.35)]">
+                    <EssentialIcon type={item.icon} />
+                  </div>
+                  <h3 className={`text-xl font-semibold tracking-tight ${item.titleClass}`}>
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 max-w-[34ch] text-[0.98rem] leading-7 text-slate-700">
+                    {item.description}
+                  </p>
+                </motion.article>
+              ))}
             </div>
           </motion.div>
         </section>
