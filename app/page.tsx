@@ -38,35 +38,35 @@ const cardHover = {
 
 const heroImages = [
   {
-    src: "/images/Course/20250707014_Pilot_Workshop-scaled.jpg?v=20260702",
+    src: "/images/Course/20250707014_Pilot_Workshop-scaled.jpg",
     alt: "Pilot workshop in the engineering active learning studio",
   },
   {
-    src: "/images/Course/edwin_workshop.jpg?v=20260702",
+    src: "/images/Course/edwin_workshop.jpg",
     alt: "Students collaborating during a workshop session",
   },
   {
-    src: "/images/Course/kyle_lecture.jpg?v=20260702",
+    src: "/images/Course/kyle_lecture.jpg",
     alt: "Lecture-style teaching session for active learning",
   },
   {
-    src: "/images/Course/kyle_workshop1.jpg?v=20260702",
+    src: "/images/Course/kyle_workshop1.jpg",
     alt: "Hands-on workshop activity with students and teaching staff",
   },
   {
-    src: "/images/Course/kyle_workshop2.jpg?v=20260702",
+    src: "/images/Course/kyle_workshop2.jpg",
     alt: "Active learning workshop scene in the studio",
   },
   {
-    src: "/images/Course/kyle_workshop3.jpg?v=20260702",
+    src: "/images/Course/kyle_workshop3.jpg",
     alt: "Collaborative project work during a studio workshop",
   },
   {
-    src: "/images/Course/ryan_lecture.jpg?v=20260702",
+    src: "/images/Course/ryan_lecture.jpg",
     alt: "Lecture session led by teaching staff",
   },
   {
-    src: "/images/Course/timmy_lecture.jpg?v=20260702",
+    src: "/images/Course/timmy_lecture.jpg",
     alt: "Teaching session in the active learning environment",
   },
 ];
