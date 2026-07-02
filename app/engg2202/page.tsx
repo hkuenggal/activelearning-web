@@ -20,38 +20,6 @@ const templateSections = [
       "Communicate technical decisions through concise documentation and presentations.",
     ],
   },
-  {
-    title: "Module Schedule",
-    items: [
-      "Weekly schedule template to be confirmed.",
-      "Studio sessions, critique checkpoints and milestone reviews will appear here.",
-      "Final dates and room information will be added when available.",
-    ],
-  },
-  {
-    title: "Project Deliverables",
-    items: [
-      "Team proposal and project plan.",
-      "Prototype demonstrations and testing records.",
-      "Final presentation, project documentation and reflection.",
-    ],
-  },
-  {
-    title: "Resources",
-    items: [
-      "Module handbook placeholder.",
-      "Assessment rubrics and submission links will be added later.",
-      "Studio resources and reference materials will be listed here.",
-    ],
-  },
-  {
-    title: "Contact / Consultation",
-    items: [
-      "Consultation arrangements will be announced by the teaching team.",
-      "For general questions, contact enggal@hku.hk.",
-      "More support channels will be added before the module begins.",
-    ],
-  },
 ];
 
 const fadeIn = {

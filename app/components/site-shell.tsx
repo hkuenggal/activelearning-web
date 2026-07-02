@@ -1,17 +1,14 @@
 "use client";
 
-import { useEffect, useState, type ReactNode } from "react";
+import { useEffect, useState, type MouseEvent, type ReactNode } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { usePathname, useRouter } from "next/navigation";
 import { imagePath } from "../lib/image-path";
-
-const engg1101NotionUrl =
-  "https://engineering-challenges.notion.site/ENGG1101-Engineering-Challenges-247d72aefb858052a816d5232746d4db?source=copy_link";
 
 const navigation = [
   { label: "About", href: "/#about" },
-  { label: "ENGG1101", href: engg1101NotionUrl },
+  { label: "ENGG1101", href: "/engg1101" },
   { label: "ENGG2202", href: "/engg2202" },
   { label: "Timetable", href: "/#timetable" },
   { label: "Consultation", href: "/consultation" },
@@ -22,10 +19,58 @@ const navigation = [
 export default function SiteShell({ children }: { children: ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
   }, [pathname]);
+
+  useEffect(() => {
+    if (pathname !== "/" || typeof window === "undefined" || !window.location.hash) {
+      return;
+    }
+
+    const hash = window.location.hash;
+    window.requestAnimationFrame(() => {
+      scrollToHash(hash);
+    });
+  }, [pathname]);
+
+  function scrollToHash(hash: string) {
+    const targetId = hash.replace(/^#/, "");
+    const targetElement = document.getElementById(targetId);
+
+    if (!targetElement) {
+      return false;
+    }
+
+    const headerElement = document.querySelector("header");
+    const headerOffset = headerElement instanceof HTMLElement ? headerElement.offsetHeight : 0;
+    const top = targetElement.getBoundingClientRect().top + window.scrollY - headerOffset - 16;
+
+    window.scrollTo({ top, behavior: "smooth" });
+    return true;
+  }
+
+  function handleNavClick(event: MouseEvent<HTMLAnchorElement>, href: string) {
+    setIsMobileMenuOpen(false);
+
+    if (!href.startsWith("/#")) {
+      return;
+    }
+
+    const hash = href.slice(1);
+
+    if (pathname !== "/") {
+      event.preventDefault();
+      router.push(href);
+      return;
+    }
+
+    event.preventDefault();
+    window.history.pushState(null, "", href);
+    scrollToHash(hash);
+  }
 
   return (
     <div className="relative min-h-screen bg-[#fbfbfb] text-slate-950">
@@ -60,7 +105,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                       {item.label}
                     </a>
                   ) : (
-                    <Link href={item.href} className="transition-colors hover:text-slate-950">
+                    <Link href={item.href} className="transition-colors hover:text-slate-950" onClick={(event) => handleNavClick(event, item.href)}>
                       {item.label}
                     </Link>
                   )}
@@ -155,7 +200,7 @@ export default function SiteShell({ children }: { children: ReactNode }) {
                       <Link
                         href={item.href}
                         className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
-                        onClick={() => setIsMobileMenuOpen(false)}
+                        onClick={(event) => handleNavClick(event, item.href)}
                       >
                         {item.label}
                       </Link>

@@ -7,16 +7,13 @@ import { motion, AnimatePresence } from "framer-motion";
 import SiteShell from "./components/site-shell";
 import { imagePath } from "./lib/image-path";
 
-const engg1101NotionUrl =
-  "https://engineering-challenges.notion.site/ENGG1101-Engineering-Challenges-247d72aefb858052a816d5232746d4db?source=copy_link";
-
 const courses = [
   {
     title: "Engineering Challenge 1",
     description:
       "An introductory studio course where student teams explore engineering problems through iterative design and prototyping.",
     status: "ENGG1101",
-    detailsHref: engg1101NotionUrl,
+    detailsHref: "/engg1101",
   },
   {
     title: "Engineering Challenge 2",
