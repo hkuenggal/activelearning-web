@@ -566,14 +566,7 @@ export default function Home() {
         </section>
 
         <section className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/92 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)] sm:p-10">
-          <motion.div
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.2 }}
-            transition={{ duration: 0.7 }}
-            variants={fadeIn}
-            className="space-y-10"
-          >
+          <div className="space-y-10">
             <div className="space-y-3 text-center">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
                 Essentials
@@ -607,7 +600,7 @@ export default function Home() {
                 </motion.article>
               ))}
             </div>
-          </motion.div>
+          </div>
         </section>
 
         <div className="mt-6 text-center text-xs text-slate-500">
