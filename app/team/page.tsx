@@ -8,25 +8,25 @@ import { imagePath } from "../lib/image-path";
 const team = [
   {
     name: "Dr. Timmy Cheng",
-    role: "Lecturer",
+    role: "Course Instructor",
     image: imagePath("/images/team/Timmy-scaled.jpg"),
-    note: "Lecturer focusing on studio pedagogy and hands-on project supervision.",
+    note: "Course instructor focusing on studio pedagogy and hands-on project supervision.",
   },
   {
     name: "Dr. Ryan Wang",
-    role: "Lecturer",
+    role: "Course Instructor",
     image: imagePath("/images/team/Ryan.jpg"),
     note: "Leads modules in collaborative systems and team-based design practice.",
   },
   {
     name: "Dr. Edwin Dung",
-    role: "Lecturer",
+    role: "Course Instructor",
     image: imagePath("/images/team/Edwin.jpg"),
     note: "Specialises in prototype development and reflective assessment in studio courses.",
   },
   {
     name: "Mr. Kyle He",
-    role: "Assistant Lecturer",
+    role: "Course Instructor",
     image: imagePath("/images/team/Kyle.jpg"),
     note: "Supports lab sessions, peer learning coordination and technical workshops.",
   },

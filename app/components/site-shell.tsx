@@ -12,6 +12,7 @@ const navigation = [
   { label: "ENGG2202", href: "/engg2202" },
   { label: "Timetable", href: "/#timetable" },
   { label: "Consultation", href: "/consultation" },
+  { label: "Gallery", href: "/gallery" },
   { label: "Team", href: "/team" },
   { label: "Contact", href: "/contact" },
 ];

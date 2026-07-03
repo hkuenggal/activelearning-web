@@ -18,7 +18,7 @@ const courses = [
   {
     title: "Engineering Challenge 2",
     description:
-      "A project-based course in which teams undertake a semester-long engineering challenge, focusing on applied design, prototyping, and structured reflection.",
+      "A project-based course in which teams undertake a two-semester engineering challenge, focusing on applied design, prototyping, and structured reflection.",
     status: "ENGG2202",
     detailsHref: "/engg2202",
   },

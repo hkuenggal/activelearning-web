@@ -8,7 +8,7 @@ const templateSections = [
     title: "Course Overview",
     items: [
       "Project-based studio module for Engineering Challenge 2.",
-      "Teams will work through a semester-long engineering challenge.",
+      "Teams will work through a two-semester engineering challenge.",
       "Detailed ENGG2202 module content will be added soon.",
     ],
   },
