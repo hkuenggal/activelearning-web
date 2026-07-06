@@ -14,62 +14,67 @@ type GalleryPhoto = {
 const galleryPhotos: GalleryPhoto[] = [
   {
     src: imagePath("/images/Course/20250707014_Pilot_Workshop-scaled.jpg"),
-    alt: "Pilot workshop in the engineering active learning studio",
+    alt: "Pilot workshop on building your own prototype arm",
     span: "md:col-span-3 md:row-span-2",
   },
   {
     src: imagePath("/images/Course/edwin_workshop.jpg"),
-    alt: "Students collaborating during a workshop session",
+    alt: "Instructor is guiding students during a workshop session",
     span: "md:col-span-3 md:row-span-1",
   },
   {
+    src: imagePath("/images/Course/edwin_lecture.jpg"),
+    alt: "Instructor is delivering a lecture on sustainable technologies",
+    span: "md:col-span-3 md:row-span-2",
+  },
+  {
     src: imagePath("/images/Course/kyle_lecture.jpg"),
-    alt: "Teaching moment during an active learning lecture",
+    alt: "Instructor is delivering a lecture on rapid prototyping",
     span: "md:col-span-3 md:row-span-1",
   },
   {
     src: imagePath("/images/Course/kyle_workshop1.jpg"),
-    alt: "Hands-on workshop activity with students and teaching staff",
+    alt: "Student team is posing with their prototype",
     span: "md:col-span-3 md:row-span-2",
   },
   {
     src: imagePath("/images/Course/kyle_workshop2.jpg"),
-    alt: "Active learning workshop scene in the studio",
+    alt: "Student team is posing with their prototype",
     span: "md:col-span-3 md:row-span-2",
   },
   {
     src: imagePath("/images/Course/kyle_workshop3.jpg"),
-    alt: "Collaborative project work during a studio workshop",
+    alt: "Student team is posing with their prototype",
     span: "md:col-span-3 md:row-span-1",
   },
   {
     src: imagePath("/images/Course/ryan_lecture.jpg"),
-    alt: "Lecture session led by the course teaching team",
+    alt: "Instructor is delivering a lecture on aerial robotics",
     span: "md:col-span-3 md:row-span-2",
   },
   {
     src: imagePath("/images/Course/studentgroup.jpg"),
-    alt: "Student group presenting project progress",
+    alt: "Student team is posing with their prototype",
     span: "md:col-span-3 md:row-span-1",
   },
   {
     src: imagePath("/images/Course/Timmy_groupphoto.jpg"),
-    alt: "Group photo with students and instructor",
+    alt: "Students and instructor",
     span: "md:col-span-3 md:row-span-1",
   },
   {
     src: imagePath("/images/Course/timmy_lecture.jpg"),
-    alt: "Course instructor guiding an active learning session",
+    alt: "Instructor is delivering a lecture on design thinking",
     span: "md:col-span-3 md:row-span-2",
   },
   {
     src: imagePath("/images/Course/with_TO1.jpg"),
-    alt: "Students and teaching team collaborating in a workshop session",
+    alt: "Instructor is engaging in a lab showcase",
     span: "md:col-span-3 md:row-span-1",
   },
   {
     src: imagePath("/images/Course/with_TO2.jpg"),
-    alt: "Active learning team photo during course activities",
+    alt: "Instructor is engaging in a lab showcase",
     span: "md:col-span-3 md:row-span-1",
   },
 ];
