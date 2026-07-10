@@ -11,14 +11,14 @@ const courses = [
   {
     title: "Engineering Challenge 1",
     description:
-      "An introductory studio course where student teams explore engineering problems through iterative design and prototyping.",
+      "A first-year course where students build their engineering toolkit and fundamentals through hands-on, team-based activities.",
     status: "ENGG1101",
     detailsHref: "/engg1101",
   },
   {
     title: "Engineering Challenge 2",
     description:
-      "A project-based course in which teams undertake a two-semester engineering challenge, focusing on applied design, prototyping, and structured reflection.",
+      "A second-year or above, project-based course in which teams prototype and solve a real, open-ended engineering challenge, applying their skills through design, iteration, and structured reflection.",
     status: "ENGG2202",
     detailsHref: "/engg2202",
   },
@@ -147,69 +147,6 @@ const essentials = [
   },
 ];
 
-const assessmentCards = [
-  {
-    weight: "55%",
-    title: "Checkpoints & Assignments",
-    subtitle: "Individual work",
-    description: "Checkpoint exercises and short written assignments.",
-    icon: "checklist",
-  },
-  {
-    weight: "15%",
-    title: "Presentations",
-    subtitle: "Group work",
-    description: "Poster sharing and project presentation.",
-    icon: "presentation",
-  },
-  {
-    weight: "30%",
-    title: "Reports",
-    subtitle: "Individual work",
-    description: "Interim reporting and final reflection.",
-    icon: "report",
-  },
-];
-
-const assessmentRows = [
-  {
-    type: "Checkpoints (Mainly MCs)",
-    weight: "35%",
-    note: "INDIVIDUAL WORK",
-    description: "Short checkpoint exercises focused on quick understanding checks.",
-  },
-  {
-    type: "Short Written Assignments",
-    weight: "20%",
-    note: "Individual work",
-    description: "Concise written submissions that document your progress and reflection.",
-  },
-  {
-    type: "Poster",
-    weight: "5%",
-    note: "Group work",
-    description: "A visual summary of the project outcome and key ideas.",
-  },
-  {
-    type: "Presentation",
-    weight: "10%",
-    note: "Group work",
-    description: "An oral presentation explaining the project and its decisions.",
-  },
-  {
-    type: "Interim Report",
-    weight: "15%",
-    note: "Individual work",
-    description: "A mid-course report on progress, findings, and next steps.",
-  },
-  {
-    type: "Final Report on Improvements, Results, and Reflection",
-    weight: "15%",
-    note: "Individual work",
-    description: "A final report summarising improvements, results and reflection.",
-  },
-];
-
 const studentComments = [
   "The tutors also were very helpful during workshops as well as giving advice for the project.",
   "Got along like a friend instead of a professional teacher-student relationship. Conveyed the knowledge properly and in a way that an amateur like me would understand.",
@@ -296,42 +233,6 @@ function EssentialIcon({ type }: { type: string }) {
     <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
       <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
       <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2Z" />
-    </svg>
-  );
-}
-
-function AssessmentIcon({ type }: { type: string }) {
-  const baseClass = "h-5 w-5 text-[#9b2c8a]";
-
-  if (type === "checklist") {
-    return (
-      <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="4" y="4" width="16" height="16" rx="3" />
-        <path d="M8 9h8" />
-        <path d="M8 13h8" />
-        <path d="m8 17 2-2 2 2 4-4" />
-      </svg>
-    );
-  }
-
-  if (type === "presentation") {
-    return (
-      <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-        <rect x="4" y="4" width="16" height="10" rx="2" />
-        <path d="M12 14v4" />
-        <path d="M9 18h6" />
-        <path d="M8 10h8" />
-        <path d="M12 6v4" />
-      </svg>
-    );
-  }
-
-  return (
-    <svg className={baseClass} viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-      <path d="M6 3h9l5 5v13H6z" />
-      <path d="M15 3v5h5" />
-      <path d="M8 12h8" />
-      <path d="M8 16h8" />
     </svg>
   );
 }
@@ -573,10 +474,8 @@ export default function Home() {
                 </h2>
 
                 <p className="mt-3 max-w-4xl text-[0.98rem] leading-7 text-slate-700 lg:max-w-5xl">
-                  From ENGG1101 to ENGG2202, students progress from introductory
-                  design studios to applied engineering projects, learning by
-                  doing as teams iterate, prototype and reflect their way
-                  through authentic problems.
+                  Active learning through real engineering challenges. Across Engineering Challenges I (ENGG1101) and II (ENGG2202), students move from building core engineering fundamentals
+                  to tackling open-ended, real-world problems, learning by doing as teams design, prototype, and reflect.
                 </p>
               </div>
             </div>
@@ -709,96 +608,6 @@ export default function Home() {
               </p>
             </div>
           </motion.div>
-        </section>
-
-        <section
-          id="assessment"
-          className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/92 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)] sm:p-10"
-        >
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
-                Assessment
-              </p>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                Course Assessment
-              </h2>
-              <p className="max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
-                Assessment is distributed across checkpoints, presentations and reports, with both individual and group components.
-              </p>
-            </div>
-
-            <div className="grid gap-5 md:grid-cols-3">
-              {assessmentCards.map((card) => (
-                <motion.div
-                  key={card.title}
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                  variants={cardHover}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="overflow-hidden rounded-[1.75rem] border border-slate-200 bg-[#fdf8ff] p-6 shadow-[0_18px_42px_-34px_rgba(15,23,42,0.18)]"
-                >
-                  <div className="mx-auto flex h-11 w-11 items-center justify-center rounded-full bg-[#efe1f5] text-[#9b2c8a]">
-                    <AssessmentIcon type={card.icon} />
-                  </div>
-                  <div className="mt-5 text-center">
-                    <p className="text-2xl font-semibold tracking-tight text-[#8b2bb8]">
-                      {card.weight}
-                    </p>
-                    <h3 className="mt-2 text-lg font-semibold text-slate-900">
-                      {card.title}
-                    </h3>
-                    <p className="mt-2 text-sm font-medium text-slate-600">
-                      {card.subtitle}
-                    </p>
-                    <p className="mt-3 text-sm leading-6 text-slate-600">
-                      {card.description}
-                    </p>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-
-            <div className="space-y-4">
-              {assessmentRows.map((row) => (
-                <motion.div
-                  key={row.type}
-                  initial="rest"
-                  whileHover="hover"
-                  animate="rest"
-                  variants={cardHover}
-                  transition={{ duration: 0.22, ease: "easeOut" }}
-                  className="rounded-[1.5rem] border border-slate-200 bg-white px-5 py-4 shadow-[0_16px_40px_-34px_rgba(15,23,42,0.18)] sm:px-6"
-                >
-                  <div className="flex items-start gap-4">
-                    <div className="mt-0.5 flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-emerald-50 text-emerald-600">
-                      <svg className="h-4 w-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="m20 6-11 11-5-5" />
-                      </svg>
-                    </div>
-
-                    <div className="min-w-0 flex-1 space-y-1">
-                      <div className="flex flex-wrap items-center gap-x-3 gap-y-1">
-                        <h3 className="text-base font-semibold text-slate-950 sm:text-lg">
-                          {row.type}
-                        </h3>
-                        <span className="text-base font-semibold text-slate-700">
-                          ({row.weight})
-                        </span>
-                        <span className="rounded-full bg-[#f3e8ff] px-3 py-1 text-xs font-semibold uppercase tracking-[0.2em] text-[#8b2bb8]">
-                          {row.note}
-                        </span>
-                      </div>
-                      <p className="text-sm leading-7 text-slate-600 sm:text-[0.98rem]">
-                        {row.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
         </section>
 
         <section className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/92 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)] sm:p-10">
