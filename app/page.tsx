@@ -656,7 +656,7 @@ export default function Home() {
               Student Voices
             </p>
             <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-              Feedback from students in the engineering challenge workshops.
+              Student Feedback on Teaching and Learning
             </h2>
 
             <div className="mt-6 flex min-h-[12rem] items-center justify-center overflow-hidden rounded-[1.5rem] border border-slate-200/80 bg-[#f8fafc] px-5 py-7 text-center shadow-[0_18px_42px_-36px_rgba(15,23,42,0.24)] sm:min-h-[10rem] sm:px-8">
