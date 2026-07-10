@@ -7,7 +7,7 @@ import { usePathname, useRouter } from "next/navigation";
 import { imagePath } from "../lib/image-path";
 
 const navigation = [
-  { label: "About", href: "/#about" },
+  { label: "Home", href: "/#about" },
   { label: "ENGG1101", href: "/engg1101" },
   { label: "ENGG2202", href: "/engg2202" },
   { label: "Schedule", href: "/#schedule" },
