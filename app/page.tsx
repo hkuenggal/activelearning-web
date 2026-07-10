@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { motion, AnimatePresence } from "framer-motion";
@@ -234,7 +234,29 @@ function EssentialIcon({ type }: { type: string }) {
 
 export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
+<<<<<<< Updated upstream
   const [studentCommentIndex, setStudentCommentIndex] = useState(0);
+=======
+  const preloadedHeroImages = useRef<Set<string>>(new Set());
+
+  useEffect(() => {
+    if (typeof window === "undefined" || heroImages.length < 2) {
+      return;
+    }
+
+    for (let offset = 1; offset <= 2; offset += 1) {
+      const nextImage = heroImages[(heroIndex + offset) % heroImages.length];
+
+      if (!nextImage || preloadedHeroImages.current.has(nextImage.src)) {
+        continue;
+      }
+
+      const image = new window.Image();
+      image.src = nextImage.src;
+      preloadedHeroImages.current.add(nextImage.src);
+    }
+  }, [heroIndex]);
+>>>>>>> Stashed changes
 
   useEffect(() => {
     if (heroImages.length < 2) {
