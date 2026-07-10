@@ -10,7 +10,7 @@ const navigation = [
   { label: "About", href: "/#about" },
   { label: "ENGG1101", href: "/engg1101" },
   { label: "ENGG2202", href: "/engg2202" },
-  { label: "Timetable", href: "/#timetable" },
+  { label: "Schedule", href: "/#schedule" },
   { label: "Consultation", href: "/consultation" },
   { label: "Gallery", href: "/gallery" },
   { label: "Team", href: "/team" },

@@ -358,10 +358,10 @@ export default function Home() {
                 </a>
 
                 <a
-                  href="#timetable"
+                  href="#schedule"
                   className="inline-flex w-full items-center justify-center rounded-full border border-white/20 bg-white/10 px-6 py-3 text-sm font-semibold text-white transition hover:border-white/40 sm:w-auto"
                 >
-                  View Timetable
+                  View Schedule
                 </a>
               </motion.div>
             </motion.div>
@@ -578,7 +578,7 @@ export default function Home() {
         </section>
 
         <section
-          id="timetable"
+          id="schedule"
           className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.18)]"
         >
           <motion.div
@@ -591,17 +591,17 @@ export default function Home() {
           >
             <div className="space-y-3">
               <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
-                Timetable
+                Schedule
               </p>
 
               <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                Timetable to be confirmed.
+                Schedule to be confirmed.
               </h2>
             </div>
 
             <div className="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-12 text-center sm:px-10">
               <p className="text-lg font-semibold text-slate-900">
-                All timetable details are pending confirmation.
+                All schedule details are pending confirmation.
               </p>
 
               <p className="mt-3 text-sm leading-6 text-slate-600">
