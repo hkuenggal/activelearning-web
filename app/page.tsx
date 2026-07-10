@@ -239,9 +239,7 @@ function EssentialIcon({ type }: { type: string }) {
 
 export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
-<<<<<<< Updated upstream
   const [studentCommentIndex, setStudentCommentIndex] = useState(0);
-=======
   const preloadedHeroImages = useRef<Set<string>>(new Set());
 
   useEffect(() => {
@@ -261,7 +259,6 @@ export default function Home() {
       preloadedHeroImages.current.add(nextImage.src);
     }
   }, [heroIndex]);
->>>>>>> Stashed changes
 
   useEffect(() => {
     if (heroImages.length < 2) {
