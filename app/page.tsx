@@ -147,6 +147,14 @@ const essentials = [
   },
 ];
 
+const studentComments = [
+  "The tutors also were very helpful during workshops as well as giving advice for the project.",
+  "Got along like a friend instead of a professional teacher-student relationship. Conveyed the knowledge properly and in a way that an amateur like me would understand.",
+  "Extremely helpful and gives good guidance.",
+  "I liked that the tutor was very clear, supportive, and approachable throughout the course.",
+  "They explained concepts in a simple way that made them easy to understand, gave helpful feedback on our work, and were always willing to answer questions patiently.",
+];
+
 function renderCourseTitle(title: string) {
   const match = /^Engineering Challenge\s+(\d+)$/i.exec(title);
 
@@ -226,6 +234,7 @@ function EssentialIcon({ type }: { type: string }) {
 
 export default function Home() {
   const [heroIndex, setHeroIndex] = useState(0);
+  const [studentCommentIndex, setStudentCommentIndex] = useState(0);
 
   useEffect(() => {
     if (heroImages.length < 2) {
@@ -235,6 +244,20 @@ export default function Home() {
     const interval = window.setInterval(() => {
       setHeroIndex((currentIndex) => (currentIndex + 1) % heroImages.length);
     }, 4500);
+
+    return () => window.clearInterval(interval);
+  }, []);
+
+  useEffect(() => {
+    if (studentComments.length < 2) {
+      return;
+    }
+
+    const interval = window.setInterval(() => {
+      setStudentCommentIndex((currentIndex) => (
+        currentIndex + 1
+      ) % studentComments.length);
+    }, 5000);
 
     return () => window.clearInterval(interval);
   }, []);
@@ -599,6 +622,53 @@ export default function Home() {
                   </p>
                 </motion.article>
               ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="mt-8 rounded-[2rem] border border-slate-200/80 bg-white/92 p-6 shadow-[0_20px_55px_-42px_rgba(15,23,42,0.18)] sm:p-8">
+          <div className="mx-auto max-w-3xl text-center">
+            <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
+              Student Voices
+            </p>
+            <h2 className="mt-3 text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
+              Feedback from students in the engineering challenge workshops.
+            </h2>
+
+            <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-slate-200/80 bg-[#f8fafc] px-5 py-7 shadow-[0_18px_42px_-36px_rgba(15,23,42,0.24)] sm:px-8">
+              <AnimatePresence mode="wait">
+                <motion.blockquote
+                  key={studentCommentIndex}
+                  initial={{ opacity: 0, y: 12 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -12 }}
+                  transition={{ duration: 0.35, ease: "easeOut" }}
+                  className="mx-auto min-h-[7.5rem] max-w-2xl text-base leading-8 text-slate-700 sm:min-h-[5.5rem]"
+                >
+                  &ldquo;{studentComments[studentCommentIndex]}&rdquo;
+                </motion.blockquote>
+              </AnimatePresence>
+            </div>
+
+            <div className="mt-5 flex items-center justify-center gap-2">
+              {studentComments.map((comment, index) => {
+                const isActive = index === studentCommentIndex;
+
+                return (
+                  <button
+                    key={comment}
+                    type="button"
+                    onClick={() => setStudentCommentIndex(index)}
+                    aria-label={`Show student comment ${index + 1}`}
+                    aria-current={isActive ? "true" : undefined}
+                    className={`h-2.5 rounded-full transition-all duration-300 ${
+                      isActive
+                        ? "w-6 bg-slate-900"
+                        : "w-2.5 bg-slate-300 hover:bg-slate-500"
+                    }`}
+                  />
+                );
+              })}
             </div>
           </div>
         </section>
