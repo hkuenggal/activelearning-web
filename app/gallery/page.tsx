@@ -101,12 +101,12 @@ export default function GalleryPage() {
             transition={{ duration: 0.75, ease: "easeOut" }}
             className="rounded-[2.25rem] border border-white/70 bg-gradient-to-b from-white to-[#f4f4f6] p-8 shadow-[0_24px_80px_-56px_rgba(15,23,42,0.35)] sm:p-10"
           >
-            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-600">Gallery</p>
+            <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-600">Course Gallery</p>
             <h1 className="mt-4 max-w-3xl text-4xl font-semibold tracking-tight text-slate-950 sm:text-5xl">
-              Course Album
+              Course Moments Gallery
             </h1>
             <p className="mt-4 max-w-3xl text-base leading-8 text-slate-700 sm:text-lg">
-              A curated visual archive of studio moments, workshops, and project collaboration across the course journey.
+              A curated visual archive of studio moments, workshops, lectures and project collaboration across the course journey.
             </p>
           </motion.section>
 
