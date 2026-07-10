@@ -153,6 +153,11 @@ const studentComments = [
   "Extremely helpful and gives good guidance.",
   "I liked that the tutor was very clear, supportive, and approachable throughout the course.",
   "They explained concepts in a simple way that made them easy to understand, gave helpful feedback on our work, and were always willing to answer questions patiently.",
+  "Very skilled and provides detailed explanations and feedback.",
+  "Really passionate and nice.",
+  "The tutor for subclass L was highly engaged in the teaching process and consistently provided support to ensure we fully grasped the material.",
+  "They handle all kinds of questions and offer a lot of help during the workshop.",
+  "They were very helpful during the workshops and it promoted collaboration.",
 ];
 
 function renderCourseTitle(title: string) {
@@ -657,7 +662,7 @@ export default function Home() {
               Feedback from students in the engineering challenge workshops.
             </h2>
 
-            <div className="mt-6 overflow-hidden rounded-[1.5rem] border border-slate-200/80 bg-[#f8fafc] px-5 py-7 shadow-[0_18px_42px_-36px_rgba(15,23,42,0.24)] sm:px-8">
+            <div className="mt-6 flex min-h-[12rem] items-center justify-center overflow-hidden rounded-[1.5rem] border border-slate-200/80 bg-[#f8fafc] px-5 py-7 text-center shadow-[0_18px_42px_-36px_rgba(15,23,42,0.24)] sm:min-h-[10rem] sm:px-8">
               <AnimatePresence mode="wait">
                 <motion.blockquote
                   key={studentCommentIndex}
@@ -665,7 +670,7 @@ export default function Home() {
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.35, ease: "easeOut" }}
-                  className="mx-auto min-h-[7.5rem] max-w-2xl text-base leading-8 text-slate-700 sm:min-h-[5.5rem]"
+                  className="mx-auto flex min-h-full max-w-2xl items-center justify-center text-center text-base leading-8 text-slate-700"
                 >
                   &ldquo;{studentComments[studentCommentIndex]}&rdquo;
                 </motion.blockquote>
