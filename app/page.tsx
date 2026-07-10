@@ -489,7 +489,7 @@ export default function Home() {
                 whileHover="hover"
                 animate="rest"
                 variants={cardHover}
-                className={`group overflow-hidden rounded-[2rem] border p-8 shadow-[0_24px_60px_-48px_rgba(15,23,42,0.18)] transition ${
+                className={`group flex h-full flex-col overflow-hidden rounded-[2rem] border p-8 shadow-[0_24px_60px_-48px_rgba(15,23,42,0.18)] transition ${
                   course.status === "ENGG2202"
                     ? "border-slate-800 bg-slate-950"
                     : "border-slate-200/80 bg-white"
@@ -528,7 +528,7 @@ export default function Home() {
                 </p>
 
                 <div
-                  className={`mt-8 flex items-center gap-2 text-sm font-semibold ${
+                  className={`mt-auto flex items-center gap-2 pt-8 text-sm font-semibold ${
                     course.status === "ENGG2202"
                       ? "text-white"
                       : "text-slate-950"
