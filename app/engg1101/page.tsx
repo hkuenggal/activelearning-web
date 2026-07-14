@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { motion } from "framer-motion";
 import SiteShell from "../components/site-shell";
 import { imagePath } from "../lib/image-path";
@@ -354,74 +355,43 @@ export default function Engg1101Page() {
           transition={{ duration: 0.6 }}
           variants={fadeIn}
           whileHover={{ scale: 1.01, y: -2 }}
-          className="mt-10 overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/95 shadow-[0_20px_60px_-44px_rgba(15,23,42,0.18)] transition-transform duration-200 ease-out"
+          className="mt-10 rounded-[2rem] border border-slate-200/80 bg-white/95 p-8 shadow-[0_20px_60px_-44px_rgba(15,23,42,0.18)] transition-transform duration-200 ease-out sm:p-10"
         >
-          <div className="grid gap-0 lg:grid-cols-[1.05fr_0.95fr] lg:items-stretch">
-            <div className="bg-gradient-to-br from-slate-950 via-slate-900 to-slate-800 px-8 py-8 text-slate-100 sm:px-10 sm:py-10">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-300">
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
                 Robotic Arm Controller
               </p>
-              <div className="mt-4 max-w-2xl space-y-4">
-                <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
-                  Building control logic for a responsive robotic arm.
-                </h2>
-                <p className="text-sm leading-7 text-slate-300 sm:text-base">
-                  This section highlights the robotic arm controller component used in ENGG1101, focusing on how input, feedback and actuation work together in a simple control loop.
-                </p>
-              </div>
+              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                Open the dedicated controller page for the robotic arm module.
+              </h2>
+              <p className="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
+                This course feature lives on its own page so it can behave like a subpage without being added to the main navigation bar.
+              </p>
+              <Link
+                href="/engg1101/robotic-arm-controller"
+                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+              >
+                Open controller page
+              </Link>
+            </div>
 
-              <div className="mt-8 grid gap-4 sm:grid-cols-3">
+            <div className="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 sm:px-8 sm:py-8">
+              <div className="grid gap-4 sm:grid-cols-3">
                 {[
-                  {
-                    title: "Input",
-                    text: "Signals from the user or sensor data start the control sequence.",
-                  },
-                  {
-                    title: "Control",
-                    text: "The controller processes the input and decides how the arm should move.",
-                  },
-                  {
-                    title: "Output",
-                    text: "Motors and joints respond to complete the intended motion smoothly.",
-                  },
+                  "Control loop",
+                  "Motor response",
+                  "Feedback handling",
                 ].map((item) => (
-                  <div key={item.title} className="rounded-[1.4rem] border border-white/10 bg-white/8 p-4 backdrop-blur-sm">
-                    <h3 className="text-base font-semibold text-white">{item.title}</h3>
-                    <p className="mt-2 text-sm leading-6 text-slate-300">{item.text}</p>
+                  <div key={item} className="rounded-[1.3rem] border border-slate-200 bg-white px-4 py-5 text-center text-sm font-semibold text-slate-800 shadow-[0_14px_30px_-30px_rgba(15,23,42,0.25)]">
+                    {item}
                   </div>
                 ))}
               </div>
             </div>
-
-            <div className="relative min-h-[280px] overflow-hidden bg-slate-100 sm:min-h-[320px]">
-              <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,_rgba(59,130,246,0.18),_transparent_40%),radial-gradient(circle_at_bottom_left,_rgba(16,185,129,0.16),_transparent_34%)]" />
-              <div className="absolute inset-6 rounded-[1.75rem] border border-slate-200 bg-white p-5 shadow-[0_20px_50px_-40px_rgba(15,23,42,0.2)] sm:inset-8 sm:p-6">
-                <div className="flex h-full items-center justify-center rounded-[1.35rem] border border-dashed border-slate-300 bg-slate-50 px-6 py-8">
-                  <div className="max-w-sm space-y-4 text-center">
-                    <div className="mx-auto flex h-14 w-14 items-center justify-center rounded-full bg-slate-950 text-white">
-                      <svg className="h-7 w-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
-                        <path d="M7 7h10" />
-                        <path d="M12 7v10" />
-                        <path d="M9 17h6" />
-                        <path d="M8 11h8" />
-                        <path d="M6 5v4" />
-                        <path d="M18 5v4" />
-                      </svg>
-                    </div>
-                    <div className="space-y-2">
-                      <h3 className="text-xl font-semibold tracking-tight text-slate-950">
-                        Controller overview
-                      </h3>
-                      <p className="text-sm leading-7 text-slate-600">
-                        A control-oriented workflow helps students connect mechanical design, sensing and simple automation into one practical system.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
           </div>
         </motion.section>
+
       </main>
     </SiteShell>
   );
