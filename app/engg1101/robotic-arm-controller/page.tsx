@@ -9,6 +9,12 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 },
 };
 
+type BluetoothNavigator = Navigator & {
+  bluetooth?: {
+    requestDevice: (options: { acceptAllDevices: true }) => Promise<{ name?: string }>;
+  };
+};
+
 const servos = [
   {
     label: "Base",
@@ -54,14 +60,21 @@ export default function RoboticArmControllerPage() {
   const [bluetoothStatus, setBluetoothStatus] = useState("Bluetooth disconnected");
 
   async function handleConnectBluetooth() {
-    if (typeof navigator === "undefined" || !("bluetooth" in navigator)) {
+    if (typeof navigator === "undefined") {
+      setBluetoothStatus("Bluetooth is not supported in this browser.");
+      return;
+    }
+
+    const bluetoothNavigator = navigator as BluetoothNavigator;
+
+    if (!bluetoothNavigator.bluetooth?.requestDevice) {
       setBluetoothStatus("Bluetooth is not supported in this browser.");
       return;
     }
 
     try {
       setBluetoothStatus("Searching for a Bluetooth device...");
-      const device = await navigator.bluetooth.requestDevice({
+      const device = await bluetoothNavigator.bluetooth.requestDevice({
         acceptAllDevices: true,
       });
 
