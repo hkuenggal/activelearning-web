@@ -54,18 +54,36 @@ export default function RoboticArmControllerPage() {
   const [bluetoothStatus, setBluetoothStatus] = useState("Bluetooth disconnected");
 
   async function handleConnectBluetooth() {
-    if (typeof navigator === "undefined" || !("bluetooth" in navigator)) {
+    if (typeof navigator === "undefined") {
+      setBluetoothStatus("Bluetooth is not supported in this browser.");
+      return;
+    }
+
+    const bluetooth = (navigator as Navigator & { bluetooth?: unknown }).bluetooth;
+    if (
+      typeof bluetooth !== "object" ||
+      bluetooth === null ||
+      !("requestDevice" in bluetooth) ||
+      typeof bluetooth.requestDevice !== "function"
+    ) {
       setBluetoothStatus("Bluetooth is not supported in this browser.");
       return;
     }
 
     try {
       setBluetoothStatus("Searching for a Bluetooth device...");
-      const device = await navigator.bluetooth.requestDevice({
+      const device = await bluetooth.requestDevice({
         acceptAllDevices: true,
       });
 
-      setBluetoothStatus(`Connected to ${device.name || "selected device"}`);
+      const deviceName =
+        typeof device === "object" &&
+        device !== null &&
+        "name" in device &&
+        typeof device.name === "string"
+          ? device.name
+          : "selected device";
+      setBluetoothStatus(`Connected to ${deviceName}`);
     } catch {
       setBluetoothStatus("Bluetooth connection was cancelled or failed.");
     }
