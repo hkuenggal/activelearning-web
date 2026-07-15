@@ -575,6 +575,49 @@ export default function Home() {
           </div>
         </section>
 
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          variants={fadeIn}
+          whileHover={{ scale: 1.01, y: -2 }}
+          className="mt-10 overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/95 shadow-[0_20px_60px_-44px_rgba(15,23,42,0.18)] transition-transform duration-200 ease-out"
+        >
+          <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
+            <div className="relative min-h-[260px] overflow-hidden bg-slate-200 sm:min-h-[320px]">
+              <Image
+                src={imagePath("/images/Course/edwin_workshop.jpg")}
+                alt="ENGG1101 visual narrative preview"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover object-center"
+              />
+              <div className="absolute inset-0 bg-gradient-to-tr from-slate-950/40 via-slate-950/10 to-transparent" />
+            </div>
+
+            <div className="flex items-center bg-[#f7f5f1] px-8 py-8 sm:px-10 sm:py-10">
+              <div className="max-w-xl space-y-5">
+                <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
+                  Gallery
+                </p>
+                <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
+                  Enter the ENGG1101 visual narrative.
+                </h2>
+                <p className="text-sm leading-7 text-slate-700 sm:text-base">
+                  Take a look at the visual narrative of ENGG1101 students tackling real challenges through prototype building, live pitching, teamwork, iterative problem-solving, and senior-to-junior mentoring.
+                </p>
+                <Link
+                  href="/engg1101/gallery"
+                  className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
+                >
+                  Gallery
+                </Link>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
         <section
           id="schedule"
           className="mt-16 rounded-[2rem] border border-slate-200/80 bg-white/90 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.18)]"

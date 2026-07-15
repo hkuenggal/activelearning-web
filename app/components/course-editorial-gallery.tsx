@@ -4,20 +4,17 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import { imagePath } from "../lib/image-path";
 
-type GalleryPhoto = {
+type NarrativePhoto = {
   src: string;
   alt: string;
-  aspect: string;
-  objectPosition?: string;
 };
 
-type GalleryChapter = {
-  eyebrow: string;
-  title: string;
-  body: string;
-  aside?: string;
+type NarrativeEntry = {
+  statement: string;
+  quote: string;
+  byline: string;
   align: "left" | "right";
-  photos: GalleryPhoto[];
+  photos: NarrativePhoto[];
 };
 
 const fadeIn = {
@@ -25,123 +22,166 @@ const fadeIn = {
   visible: { opacity: 1, y: 0 },
 };
 
-const chapters: GalleryChapter[] = [
+const entries: NarrativeEntry[] = [
   {
-    eyebrow: "Chapter 01",
-    title: "Beginning with a blank-slate concept",
-    body:
-      "Students enter the studio with early questions, rough ideas, and no finished answers. Workshops and lectures establish the first design language: framing problems, sketching possibilities, and turning abstract intent into something buildable.",
-    aside:
-      "The documentary tone here is deliberate: less polished brochure, more field note from a live engineering studio.",
+    statement:
+      "Our Year-1 students are solving Hong Kong's real engineering challenges.",
+    quote:
+      "I learnt a lot of new things about engineering - from drones to 3D printing.",
+    byline: "ENGG1101 student",
     align: "left",
     photos: [
       {
-        src: imagePath("/images/Course/20250707014_Pilot_Workshop-scaled.jpg"),
-        alt: "Pilot workshop on building your own prototype arm",
-        aspect: "aspect-[5/4]",
+        src: imagePath("/images/Course/prototype1.jpg"),
+        alt: "Students testing a prototype tied to a real engineering challenge",
       },
       {
-        src: imagePath("/images/Course/edwin_workshop.jpg"),
-        alt: "Instructor is guiding students during a workshop session",
-        aspect: "aspect-[4/5]",
+        src: imagePath("/images/Course/prototype2.jpg"),
+        alt: "Another technical prototype developed for practical use cases",
       },
       {
-        src: imagePath("/images/Course/edwin_lecture.jpg"),
-        alt: "Instructor is delivering a lecture on sustainable technologies",
-        aspect: "aspect-[4/3]",
+        src: imagePath("/images/Course/experimentinworkshop.jpg"),
+        alt: "Workshop experimentation translating ideas into hardware",
       },
     ],
   },
   {
-    eyebrow: "Chapter 02",
-    title: "Learning by making, testing, and iterating",
-    body:
-      "As the course progresses, ideas become prototypes. Students work in teams, receive feedback in motion, and refine both concept and execution through repeated cycles of making, critique, and adjustment.",
-    aside:
-      "What matters is not a perfectly staged outcome, but the evidence of process: hands-on trial, revision, and visible progress.",
+    statement:
+      "No two projects looked the same - creativity was never optional.",
+    quote:
+      "Being able to actually build something rather than just studying theory has been exciting.",
+    byline: "ENGG1101 student",
     align: "right",
     photos: [
       {
-        src: imagePath("/images/Course/kyle_lecture.jpg"),
-        alt: "Instructor is delivering a lecture on rapid prototyping",
-        aspect: "aspect-[16/10]",
+        src: imagePath("/images/Course/studentwithprototype1.jpg"),
+        alt: "One team showing its own prototype direction",
       },
       {
-        src: imagePath("/images/Course/kyle_workshop1.jpg"),
-        alt: "Student team is posing with their prototype",
-        aspect: "aspect-[4/5]",
+        src: imagePath("/images/Course/studentwithprototype2.jpg"),
+        alt: "A different group with a distinct build concept",
       },
       {
-        src: imagePath("/images/Course/kyle_workshop2.jpg"),
-        alt: "Student team is posing with their prototype",
-        aspect: "aspect-[4/5]",
-      },
-      {
-        src: imagePath("/images/Course/kyle_workshop3.jpg"),
-        alt: "Student team is posing with their prototype",
-        aspect: "aspect-[5/4]",
+        src: imagePath("/images/Course/studentwithprototype3.jpg"),
+        alt: "Another unique prototype demonstrating creative variation",
       },
     ],
   },
   {
-    eyebrow: "Chapter 03",
-    title: "From studio ideas to tangible hardware",
-    body:
-      "By the later stages, student teams are no longer working with vague concepts. They are presenting prototypes, documenting improvements, and demonstrating engineering decisions through real, tangible artifacts and public-facing communication.",
-    aside:
-      "This final rhythm is about translation: thought into object, object into explanation, explanation into confidence.",
+    statement:
+      "They didn't just build it, they had to convince a real audience.",
+    quote:
+      "It was amazing to build a robotic arm from scratch and design algorithm to make it move.",
+    byline: "ENGG Student",
     align: "left",
     photos: [
       {
-        src: imagePath("/images/Course/ryan_lecture.jpg"),
-        alt: "Instructor is delivering a lecture on aerial robotics",
-        aspect: "aspect-[16/10]",
+        src: imagePath("/images/Course/student_presentation1.jpg"),
+        alt: "Students presenting and pitching to a live audience",
+      },
+      {
+        src: imagePath("/images/Course/student_presentation2.jpg"),
+        alt: "Project communication and Q&A during presentation",
+      },
+      {
+        src: imagePath("/images/Course/poster_demo.png"),
+        alt: "Poster demo board used to convince judges and visitors",
+      },
+    ],
+  },
+  {
+    statement:
+      "A year-long team project is a leader ship challenge, not just group work.",
+    quote:
+      "The workshop is really interesting - I can train my cooperation skills with my teammates.",
+    byline: "ENGG Student",
+    align: "right",
+    photos: [
+      {
+        src: imagePath("/images/Course/workshopgroupphoto.jpg"),
+        alt: "Full team photo showing collaboration over a long project",
       },
       {
         src: imagePath("/images/Course/studentgroup.jpg"),
-        alt: "Student team is posing with their prototype",
-        aspect: "aspect-[4/5]",
+        alt: "Teammates coordinating roles and responsibilities",
       },
       {
         src: imagePath("/images/Course/Timmy_groupphoto.jpg"),
-        alt: "Students and instructor",
-        aspect: "aspect-[5/4]",
+        alt: "Leadership and trust built through year-long teamwork",
+      },
+    ],
+  },
+  {
+    statement:
+      "When they hit a wall, they figured out how to climb over it themselves.",
+    quote:
+      "I like the active learning aspect. It allowed me to network adn have fun while learning.",
+    byline: "ENGG1101 student",
+    align: "left",
+    photos: [
+      {
+        src: imagePath("/images/Course/experimentinworkshop2.jpg"),
+        alt: "Students troubleshooting and iterating after hitting roadblocks",
       },
       {
-        src: imagePath("/images/Course/timmy_lecture.jpg"),
-        alt: "Instructor is delivering a lecture on design thinking",
-        aspect: "aspect-[4/3]",
+        src: imagePath("/images/Course/teachinginworkshop.jpg"),
+        alt: "Guided support in workshop while teams refine solutions",
       },
+      {
+        src: imagePath("/images/Course/edwin_workshop.jpg"),
+        alt: "Hands-on iteration that turns failed attempts into progress",
+      },
+    ],
+  },
+  {
+    statement:
+      "Year-2+ students came back to teach the next cohort unprompted.",
+    quote:
+      "Help me understand engineering in a pratical way.",
+    byline: "ENGG1101 student",
+    align: "right",
+    photos: [
       {
         src: imagePath("/images/Course/with_TO1.jpg"),
-        alt: "Instructor is engaging in a lab showcase",
-        aspect: "aspect-[4/5]",
+        alt: "Senior students returning to share experience with juniors",
       },
       {
         src: imagePath("/images/Course/with_TO2.jpg"),
-        alt: "Instructor is engaging in a lab showcase",
-        aspect: "aspect-[4/5]",
+        alt: "Mentors and senior peers guiding the next cohort",
+      },
+      {
+        src: imagePath("/images/Course/kyle_lecture.jpg"),
+        alt: "Peer teaching in class to support newer engineering students",
       },
     ],
   },
 ];
 
-function PhotoCard({ photo, priority = false }: { photo: GalleryPhoto; priority?: boolean }) {
+function PhotoCard({
+  photo,
+  priority = false,
+  featured = false,
+}: {
+  photo: NarrativePhoto;
+  priority?: boolean;
+  featured?: boolean;
+}) {
   return (
-    <figure className="group space-y-3">
-      <div className={`relative overflow-hidden rounded-[1.6rem] bg-slate-200 ${photo.aspect}`}>
+    <figure className="group">
+      <div
+        className={`relative overflow-hidden rounded-[1.6rem] bg-slate-200 shadow-[0_14px_30px_-20px_rgba(15,23,42,0.5)] ${
+          featured ? "aspect-[16/9]" : "aspect-[4/3]"
+        }`}
+      >
         <Image
           src={photo.src}
           alt={photo.alt}
           fill
           priority={priority}
-          sizes="(max-width: 768px) 100vw, (max-width: 1280px) 50vw, 33vw"
-          className={`object-cover transition duration-500 ease-out group-hover:scale-[1.02] ${photo.objectPosition ?? "object-center"}`}
+          sizes={featured ? "(max-width: 1024px) 100vw, 46vw" : "(max-width: 1024px) 100vw, 22vw"}
+          className="object-cover object-center transition duration-500 ease-out group-hover:scale-[1.02]"
         />
       </div>
-      <figcaption className="text-xs font-medium uppercase tracking-[0.16em] text-slate-500">
-        {photo.alt}
-      </figcaption>
     </figure>
   );
 }
@@ -152,7 +192,7 @@ export default function CourseEditorialGallery({
   compact?: boolean;
 }) {
   return (
-    <section className={compact ? "mt-10" : "mt-12"}>
+    <section className={compact ? "mt-6" : "mt-12"}>
       <motion.div
         initial="hidden"
         whileInView="visible"
@@ -161,62 +201,43 @@ export default function CourseEditorialGallery({
         transition={{ duration: 0.7, ease: "easeOut" }}
         className="rounded-[2.2rem] border border-slate-200/80 bg-[#f7f5f1] px-6 py-8 shadow-[0_24px_80px_-52px_rgba(15,23,42,0.18)] sm:px-8 sm:py-10 lg:px-10"
       >
-        <div className="max-w-4xl space-y-5">
-          <p className="text-xs font-semibold uppercase tracking-[0.3em] text-slate-500">
-            Visual Narrative
-          </p>
-          <h2 className="max-w-4xl text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl lg:text-[3.2rem] lg:leading-[1.04]">
-            A documentary editorial of students moving from blank-slate concepts to real, tangible hardware.
-          </h2>
-          <p className="max-w-3xl text-base leading-8 text-slate-700 sm:text-lg">
-            This version treats the gallery less like a photo wall and more like a yearbook narrative. Raw, live, first-person studio moments are paired with restrained editorial text to show how students think, build, test, and present their engineering work.
-          </p>
-        </div>
-
-        <div className="mt-10 space-y-14 sm:mt-12 sm:space-y-16">
-          {chapters.map((chapter, chapterIndex) => {
-            const textFirst = chapter.align === "left";
+        <div className="space-y-12 sm:space-y-14">
+          {entries.map((entry, entryIndex) => {
+            const textFirst = entry.align === "left";
 
             return (
               <motion.article
-                key={chapter.title}
+                key={entry.statement}
                 initial="hidden"
                 whileInView="visible"
                 viewport={{ once: true, amount: 0.15 }}
                 variants={fadeIn}
-                transition={{ duration: 0.65, delay: chapterIndex * 0.05 }}
-                className="grid gap-8 lg:grid-cols-[0.9fr_1.1fr] lg:gap-10"
+                transition={{ duration: 0.65, delay: entryIndex * 0.04 }}
+                className="grid gap-8 rounded-[1.8rem] border border-slate-200/70 bg-white/80 p-5 shadow-[0_18px_52px_-40px_rgba(15,23,42,0.22)] sm:p-7 lg:grid-cols-[1.05fr_0.95fr] lg:gap-10 lg:p-8"
               >
                 <div className={`${textFirst ? "lg:order-1" : "lg:order-2"} flex items-start`}>
-                  <div className="max-w-xl space-y-5 lg:sticky lg:top-28">
-                    <p className="text-xs font-semibold uppercase tracking-[0.28em] text-slate-500">
-                      {chapter.eyebrow}
-                    </p>
-                    <h3 className="text-2xl font-semibold leading-tight tracking-tight text-slate-950 sm:text-3xl">
-                      {chapter.title}
+                  <div className="max-w-2xl space-y-5">
+                    <h3 className="text-4xl font-semibold leading-[1.1] tracking-tight text-[#0f4d94] sm:text-5xl lg:text-[3.35rem]">
+                      {entry.statement}
                     </h3>
-                    <p className="text-base leading-8 text-slate-700">
-                      {chapter.body}
+                    <div className="h-1.5 w-24 rounded-full bg-[#0f4d94]" />
+                    <p className="inline bg-yellow-300 px-2 py-1 text-2xl font-semibold italic leading-snug text-red-600 box-decoration-clone sm:text-3xl">
+                      &ldquo;{entry.quote}&rdquo;
                     </p>
-                    {chapter.aside ? (
-                      <div className="border-l border-slate-300 pl-4 text-sm leading-7 text-slate-500">
-                        {chapter.aside}
-                      </div>
-                    ) : null}
+                    <p className="text-sm font-medium uppercase tracking-[0.16em] text-slate-500">
+                      -- {entry.byline}
+                    </p>
                   </div>
                 </div>
 
-                <div className={`${textFirst ? "lg:order-2" : "lg:order-1"} grid gap-4 sm:grid-cols-2 sm:gap-5`}>
-                  {chapter.photos.map((photo, photoIndex) => (
-                    <div
-                      key={photo.src}
-                      className={
-                        chapter.photos.length % 2 === 1 && photoIndex === 0
-                          ? "sm:col-span-2"
-                          : ""
-                      }
-                    >
-                      <PhotoCard photo={photo} priority={chapterIndex === 0 && photoIndex === 0} />
+                <div className={`${textFirst ? "lg:order-2" : "lg:order-1"} grid gap-4 sm:grid-cols-2`}>
+                  {entry.photos.map((photo, photoIndex) => (
+                    <div key={photo.src} className={photoIndex === 0 ? "sm:col-span-2" : ""}>
+                      <PhotoCard
+                        photo={photo}
+                        priority={entryIndex === 0 && photoIndex === 0}
+                        featured={photoIndex === 0}
+                      />
                     </div>
                   ))}
                 </div>

@@ -423,7 +423,7 @@ export default function Engg1101Page() {
                   Enter the ENGG1101 visual narrative.
                 </h2>
                 <p className="text-sm leading-7 text-slate-700 sm:text-base">
-                  Open the documentary-style gallery that traces the course journey from blank-slate concepts to students building real, tangible hardware.
+                  Take a look at the visual narrative of ENGG1101 students tackling real challenges through prototype building, live pitching, teamwork, iterative problem-solving, and senior-to-junior mentoring.
                 </p>
                 <Link
                   href="/engg1101/gallery"
