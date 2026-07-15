@@ -178,7 +178,8 @@ function PhotoCard({
           alt={photo.alt}
           fill
           priority={priority}
-          sizes={featured ? "(max-width: 1024px) 100vw, 46vw" : "(max-width: 1024px) 100vw, 22vw"}
+          quality={72}
+          sizes={featured ? "(max-width: 1024px) 100vw, 42vw" : "(max-width: 1024px) 100vw, 20vw"}
           className="object-cover object-center transition duration-500 ease-out group-hover:scale-[1.02]"
         />
       </div>
