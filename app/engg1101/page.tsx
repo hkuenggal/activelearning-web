@@ -362,7 +362,7 @@ export default function Engg1101Page() {
             <div className="relative min-h-[260px] overflow-hidden bg-slate-200 sm:min-h-[320px]">
               <Image
                 src={imagePath("/images/Course/edwin_workshop.jpg")}
-                alt="ENGG1101 gallery preview"
+                alt="ENGG1101 story preview"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover object-center"
@@ -373,19 +373,19 @@ export default function Engg1101Page() {
             <div className="flex items-center bg-[#f7f5f1] px-8 py-8 sm:px-10 sm:py-10">
               <div className="max-w-xl space-y-5">
                 <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-500">
-                  Gallery
+                  Story
                 </p>
                 <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                  Enter the ENGG1101 visual narrative.
+                  Check the story of ENGG1101
                 </h2>
                 <p className="text-sm leading-7 text-slate-700 sm:text-base">
-                  Take a look at the visual narrative of ENGG1101 students tackling real challenges through prototype building, live pitching, teamwork, iterative problem-solving, and senior-to-junior mentoring.
+                  The story of ENGG1101 students tackling real challenges through prototype building, live pitching, teamwork, iterative problem-solving, and senior-to-junior mentoring.
                 </p>
                 <Link
                   href="/engg1101/gallery"
                   className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
                 >
-                  Gallery
+                  Open Story
                 </Link>
               </div>
             </div>
