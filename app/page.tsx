@@ -75,6 +75,22 @@ const heroImages = [
     src: imagePath("/images/Course/with_TO2.jpg"),
     alt: "Active learning team photo during course activities",
   },
+  {
+    src: imagePath("/images/Course/experimentinworkshop.jpg"),
+    alt: "Workshop experimentation turning ideas into tangible hardware",
+  },
+  {
+    src: imagePath("/images/Course/studentwithprototype1.jpg"),
+    alt: "A student team presenting their prototype direction",
+  },
+  {
+    src: imagePath("/images/Course/studentwithprototype2.jpg"),
+    alt: "Another prototype concept developed through team collaboration",
+  },
+  {
+    src: imagePath("/images/Course/student_presentation1.jpg"),
+    alt: "Students pitching their project in a live presentation",
+  },
 ];
 
 const heroSlide = {
