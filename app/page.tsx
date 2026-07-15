@@ -726,7 +726,12 @@ export default function Home() {
                   transition={{ duration: 0.35, ease: "easeOut" }}
                   className="mx-auto flex min-h-full max-w-2xl items-center justify-center text-center text-base leading-8 text-slate-700"
                 >
-                  &ldquo;{studentComments[studentCommentIndex]}&rdquo;
+                  <span className="flex flex-col items-center gap-2">
+                    <span>&ldquo;{studentComments[studentCommentIndex]}&rdquo;</span>
+                    <span className="text-xs font-semibold uppercase tracking-[0.2em] text-slate-500">
+                      (2025 Intake)
+                    </span>
+                  </span>
                 </motion.blockquote>
               </AnimatePresence>
             </div>
