@@ -356,50 +356,6 @@ export default function Engg1101Page() {
           transition={{ duration: 0.6 }}
           variants={fadeIn}
           whileHover={{ scale: 1.01, y: -2 }}
-          className="mt-10 rounded-[2rem] border border-slate-200/80 bg-white/95 p-8 shadow-[0_20px_60px_-44px_rgba(15,23,42,0.18)] transition-transform duration-200 ease-out sm:p-10"
-        >
-          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
-            <div className="space-y-4">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
-                Robotic Arm Controller
-              </p>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                Open the dedicated controller page for the robotic arm module.
-              </h2>
-              <p className="max-w-2xl text-sm leading-7 text-slate-600 sm:text-base">
-                This course feature lives on its own page so it can behave like a subpage without being added to the main navigation bar.
-              </p>
-              <Link
-                href="/engg1101/robotic-arm-controller"
-                className="inline-flex items-center justify-center rounded-full bg-slate-950 px-5 py-3 text-sm font-semibold text-white transition hover:bg-slate-800"
-              >
-                Open controller page
-              </Link>
-            </div>
-
-            <div className="rounded-[1.75rem] border border-slate-200 bg-slate-50 px-6 py-6 sm:px-8 sm:py-8">
-              <div className="grid gap-4 sm:grid-cols-3">
-                {[
-                  "Control loop",
-                  "Motor response",
-                  "Feedback handling",
-                ].map((item) => (
-                  <div key={item} className="rounded-[1.3rem] border border-slate-200 bg-white px-4 py-5 text-center text-sm font-semibold text-slate-800 shadow-[0_14px_30px_-30px_rgba(15,23,42,0.25)]">
-                    {item}
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </motion.section>
-
-        <motion.section
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.2 }}
-          transition={{ duration: 0.6 }}
-          variants={fadeIn}
-          whileHover={{ scale: 1.01, y: -2 }}
           className="mt-10 overflow-hidden rounded-[2rem] border border-slate-200/80 bg-white/95 shadow-[0_20px_60px_-44px_rgba(15,23,42,0.18)] transition-transform duration-200 ease-out"
         >
           <div className="grid gap-0 lg:grid-cols-[0.95fr_1.05fr] lg:items-stretch">
@@ -431,6 +387,48 @@ export default function Engg1101Page() {
                 >
                   Gallery
                 </Link>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          variants={fadeIn}
+          whileHover={{ scale: 1.01, y: -2 }}
+          className="mt-10 rounded-[2rem] border border-slate-800 bg-slate-950 p-8 shadow-[0_20px_60px_-44px_rgba(15,23,42,0.5)] transition-transform duration-200 ease-out sm:p-10"
+        >
+          <div className="grid gap-8 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+            <div className="space-y-4">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-white/75">
+                Robotic Arm Experience
+              </p>
+              <h2 className="text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Experience the robotic arm
+              </h2>
+              <p className="max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">
+                Use the controller to explore an interactive robotic arm built for ENGG1101 workshop.
+              </p>
+              <Link
+                href="/engg1101/robotic-arm-controller"
+                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+              >
+                Open controller page
+              </Link>
+            </div>
+
+            <div className="relative flex min-h-[260px] items-center justify-end px-4 sm:min-h-[320px] sm:px-6">
+              <div className="relative ml-auto aspect-[4/3] w-full max-w-[440px]">
+                <Image
+                  src={imagePath("/images/Course/robotarm.png")}
+                  alt="Robotic arm workshop model"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 42vw"
+                  className="object-contain object-right"
+                />
               </div>
             </div>
           </div>

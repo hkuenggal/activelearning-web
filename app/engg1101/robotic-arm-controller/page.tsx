@@ -106,7 +106,7 @@ export default function RoboticArmControllerPage() {
               Robotic Arm Controller
             </h1>
             <p className="max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
-              This page is dedicated to the controller logic used inside the ENGG1101 course, with a focus on the path from input to motion.
+               Use the controller to explore an interactive robotic arm built for ENGG1101 workshop.
             </p>
           </div>
         </motion.section>
