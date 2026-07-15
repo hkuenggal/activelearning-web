@@ -15,6 +15,18 @@ type BluetoothNavigator = Navigator & {
   };
 };
 
+type SerialPortLike = {
+  open: (options: { baudRate: number }) => Promise<void>;
+};
+
+type SerialNavigator = Navigator & {
+  serial?: {
+    requestPort: () => Promise<SerialPortLike>;
+  };
+};
+
+type ConnectionMode = "bluetooth" | "usb-serial";
+
 const servos = [
   {
     label: "Base",
@@ -57,30 +69,47 @@ export default function RoboticArmControllerPage() {
   const [servoPositions, setServoPositions] = useState(
     servos.map((servo) => servo.defaultValue),
   );
-  const [bluetoothStatus, setBluetoothStatus] = useState("Bluetooth disconnected");
+  const [connectionMode, setConnectionMode] = useState<ConnectionMode>("bluetooth");
+  const [connectionStatus, setConnectionStatus] = useState("Bluetooth disconnected");
 
-  async function handleConnectBluetooth() {
+  async function handleConnect() {
     if (typeof navigator === "undefined") {
-      setBluetoothStatus("Bluetooth is not supported in this browser.");
-      return;
-    }
-
-    const bluetoothNavigator = navigator as BluetoothNavigator;
-
-    if (!bluetoothNavigator.bluetooth?.requestDevice) {
-      setBluetoothStatus("Bluetooth is not supported in this browser.");
+      setConnectionStatus("This browser does not support device connections.");
       return;
     }
 
     try {
-      setBluetoothStatus("Searching for a Bluetooth device...");
+      if (connectionMode === "usb-serial") {
+        const serialNavigator = navigator as SerialNavigator;
+
+        if (!serialNavigator.serial?.requestPort) {
+          setConnectionStatus("USB serial is not supported in this browser.");
+          return;
+        }
+
+        setConnectionStatus("Searching for a USB serial port...");
+        const port = await serialNavigator.serial.requestPort();
+        await port.open({ baudRate: 115200 });
+
+        setConnectionStatus("Connected to the selected USB serial port.");
+        return;
+      }
+
+      const bluetoothNavigator = navigator as BluetoothNavigator;
+
+      if (!bluetoothNavigator.bluetooth?.requestDevice) {
+        setConnectionStatus("Bluetooth is not supported in this browser.");
+        return;
+      }
+
+      setConnectionStatus("Searching for a Bluetooth device...");
       const device = await bluetoothNavigator.bluetooth.requestDevice({
         acceptAllDevices: true,
       });
 
-      setBluetoothStatus(`Connected to ${device.name || "selected device"}`);
+      setConnectionStatus(`Connected to ${device.name || "selected device"}`);
     } catch {
-      setBluetoothStatus("Bluetooth connection was cancelled or failed.");
+      setConnectionStatus("Connection was cancelled or failed.");
     }
   }
 
@@ -168,29 +197,52 @@ export default function RoboticArmControllerPage() {
           </div>
 
           <div className="mt-6 lg:absolute lg:right-10 lg:top-10 lg:mt-0 lg:w-72">
-            <div className="rounded-[1.6rem] border border-slate-200 bg-slate-950 p-5 text-slate-100 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.3)]">
-              <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
-                Bluetooth Tool
-              </p>
-              <p className="mt-2 text-sm leading-6 text-slate-300">
-                Connect the arm before adjusting the sliders.
-              </p>
-
-              <button
-                type="button"
-                onClick={handleConnectBluetooth}
-                className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
-              >
-                Connect Bluetooth
-              </button>
-
-              <div className="mt-4 rounded-[1.1rem] border border-white/10 bg-white/8 px-4 py-3">
-                <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
-                  Status
+            <div className="space-y-4">
+              <div className="rounded-[1.6rem] border border-slate-200 bg-white p-5 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.16)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-500">
+                  Connection Port
                 </p>
-                <p className="mt-1 text-sm font-medium text-white">
-                  {bluetoothStatus}
+                <p className="mt-2 text-sm leading-6 text-slate-600">
+                  Choose whether the arm connects through Bluetooth or a USB serial cable.
                 </p>
+
+                <label className="mt-4 block text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-500">
+                  Port type
+                  <select
+                    value={connectionMode}
+                    onChange={(event) => setConnectionMode(event.target.value as ConnectionMode)}
+                    className="mt-2 w-full rounded-full border border-slate-200 bg-slate-50 px-4 py-2.5 text-sm font-medium text-slate-950 outline-none transition focus:border-slate-400"
+                  >
+                    <option value="bluetooth">Bluetooth</option>
+                    <option value="usb-serial">USB serial</option>
+                  </select>
+                </label>
+              </div>
+
+              <div className="rounded-[1.6rem] border border-slate-200 bg-slate-950 p-5 text-slate-100 shadow-[0_18px_45px_-36px_rgba(15,23,42,0.3)]">
+                <p className="text-xs font-semibold uppercase tracking-[0.22em] text-slate-300">
+                  Connection Tool
+                </p>
+                <p className="mt-2 text-sm leading-6 text-slate-300">
+                  Connect the arm before adjusting the sliders.
+                </p>
+
+                <button
+                  type="button"
+                  onClick={handleConnect}
+                  className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-white px-4 py-2.5 text-sm font-semibold text-slate-950 transition hover:bg-slate-100"
+                >
+                  {connectionMode === "bluetooth" ? "Connect Bluetooth" : "Connect USB Serial"}
+                </button>
+
+                <div className="mt-4 rounded-[1.1rem] border border-white/10 bg-white/8 px-4 py-3">
+                  <p className="text-[11px] font-semibold uppercase tracking-[0.2em] text-slate-400">
+                    Status
+                  </p>
+                  <p className="mt-1 text-sm font-medium text-white">
+                    {connectionStatus}
+                  </p>
+                </div>
               </div>
             </div>
           </div>
