@@ -211,12 +211,16 @@ export default function CourseEditorialGallery({
   const quoteClassName = compact
     ? "inline bg-yellow-300 px-2 py-1 text-[1.15rem] font-semibold italic leading-snug text-red-600 box-decoration-clone sm:text-[1.35rem] lg:text-[1.55rem]"
     : "inline bg-yellow-300 px-2 py-1 text-2xl font-semibold italic leading-snug text-red-600 box-decoration-clone sm:text-3xl";
+  const sectionInitial = compact ? false : "hidden";
+  const sectionWhileInView = compact ? undefined : "visible";
+  const articleInitial = compact ? false : "hidden";
+  const articleWhileInView = compact ? undefined : "visible";
 
   return (
     <section id={sectionId} className={sectionClassName}>
       <motion.div
-        initial="hidden"
-        whileInView="visible"
+        initial={sectionInitial}
+        whileInView={sectionWhileInView}
         viewport={{ once: true, amount: 0.2 }}
         variants={fadeIn}
         transition={{ duration: 0.7, ease: "easeOut" }}
@@ -229,8 +233,8 @@ export default function CourseEditorialGallery({
             return (
               <motion.article
                 key={entry.statement}
-                initial="hidden"
-                whileInView="visible"
+                initial={articleInitial}
+                whileInView={articleWhileInView}
                 viewport={{ once: true, amount: 0.15 }}
                 variants={fadeIn}
                 transition={{ duration: 0.65, delay: entryIndex * 0.04 }}
