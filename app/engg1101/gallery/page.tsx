@@ -50,7 +50,7 @@ export default function Engg1101GalleryPage() {
                   01
                 </span>
                 <div className="relative max-w-2xl space-y-4 pt-12 sm:space-y-5">
-                  <h2 className="text-[2.2rem] font-semibold leading-[0.95] tracking-tight text-[#0f4d94] sm:text-[2.8rem] lg:text-[3.35rem]">
+                  <h2 className="text-[1.8rem] font-semibold leading-[0.96] tracking-tight text-[#0f4d94] sm:text-[2.25rem] lg:text-[2.7rem]">
                     Our Year-1 students are solving Hong Kong's real engineering challenges.
                   </h2>
                   <div className="h-1.5 w-28 rounded-full bg-[#0f4d94]" />
