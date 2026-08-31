@@ -5,7 +5,7 @@ import SiteShell from "../../components/site-shell";
 import { LECTURE_SLOT, SUBCLASSES } from "../../../src/data/engg1101Schedule";
 import { formatDate, formatWorkshopSlot, getSubclassSessions, isTodayOrLater, type Subclass } from "./schedule-data";
 
-const engg1101NotionEmbedUrl = "https://engineering-challenges.notion.site/ebd//bb7d72aefb85829ea48381c1d8bdd58e";
+const engg1101NotionPublicUrl = "https://app.notion.com/p/engineering-challenges/2026-27-ENGG1101-Engineering-Challenges-bb7d72aefb85829ea48381c1d8bdd58e?source=copy_link";
 
 type ScheduleDetailProps = {
   subclass: Subclass;
@@ -84,7 +84,7 @@ export default function ScheduleDetail({ subclass }: ScheduleDetailProps) {
                 <p className="mt-1 text-lg font-semibold text-slate-900">{subclass.workshopVenue}</p>
                 <p className="mt-1 text-sm text-slate-700">Please check the workshop location guide in the first row of "Course Materials" in the ENGG1101 Notion page.</p>
               </div>
-              <a href={engg1101NotionEmbedUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-500">
+              <a href={engg1101NotionPublicUrl} target="_blank" rel="noreferrer" className="inline-flex items-center justify-center rounded-full bg-amber-600 px-4 py-2 text-sm font-semibold text-white transition hover:bg-amber-500">
                 Open Notion page
               </a>
             </div>

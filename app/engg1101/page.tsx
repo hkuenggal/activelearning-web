@@ -7,7 +7,7 @@ import SiteShell from "../components/site-shell";
 import { imagePath } from "../lib/image-path";
 
 const engg1101NotionPublicUrl =
-  "https://engineering-challenges.notion.site/ENGG1101-Engineering-Challenges-247d72aefb858052a816d5232746d4db?source=copy_link";
+  "https://app.notion.com/p/engineering-challenges/2026-27-ENGG1101-Engineering-Challenges-bb7d72aefb85829ea48381c1d8bdd58e?source=copy_link";
 
 // This is the special embeddable Notion path, different from the public share link.
 // It was verified via response headers to return frame-ancestors https: http:,
