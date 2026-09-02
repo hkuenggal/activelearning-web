@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import SiteShell from "../components/site-shell";
 import { imagePath } from "../lib/image-path";
+import AssessmentSection from "./components/AssessmentSection";
 
 const engg1101WorkshopPagePath = "/engg1101/workshop";
 
@@ -240,28 +241,7 @@ export default function Engg1101Page() {
           ))}
         </section>
 
-        <section
-          id="assessment"
-          className="mt-10 rounded-[2rem] border border-slate-200/80 bg-white/92 p-8 shadow-[0_20px_60px_-40px_rgba(15,23,42,0.15)] sm:p-10"
-        >
-          <div className="space-y-8">
-            <div className="space-y-3">
-              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-slate-700/80">
-                Assessment
-              </p>
-              <h2 className="text-3xl font-semibold tracking-tight text-slate-950 sm:text-4xl">
-                Course Assessment
-              </h2>
-              <p className="max-w-3xl text-sm leading-7 text-slate-600 sm:text-base">
-                Course assessment details are to be confirmed.
-              </p>
-            </div>
-
-            <div className="rounded-[1.5rem] border border-slate-200 bg-slate-50 px-6 py-8 text-center shadow-[0_16px_40px_-34px_rgba(15,23,42,0.18)] sm:px-8">
-              <p className="text-lg font-semibold text-slate-900">To be confirmed.</p>
-            </div>
-          </div>
-        </section>
+        <AssessmentSection />
 
         <motion.section
           initial="hidden"
