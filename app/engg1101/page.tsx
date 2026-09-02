@@ -6,8 +6,7 @@ import { motion } from "framer-motion";
 import SiteShell from "../components/site-shell";
 import { imagePath } from "../lib/image-path";
 
-const engg1101NotionPublicUrl =
-  "https://app.notion.com/p/engineering-challenges/2026-27-ENGG1101-Engineering-Challenges-bb7d72aefb85829ea48381c1d8bdd58e?source=copy_link";
+const engg1101WorkshopPagePath = "/engg1101/workshop";
 
 // This is the special embeddable Notion path, different from the public share link.
 // It was verified via response headers to return frame-ancestors https: http:,
@@ -287,7 +286,7 @@ export default function Engg1101Page() {
 
             <div>
               <a
-                href={engg1101NotionPublicUrl}
+                href={engg1101WorkshopPagePath}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 rounded-full border border-slate-200 bg-white px-4 py-2.5 text-sm font-semibold text-slate-900 shadow-[0_12px_30px_-24px_rgba(15,23,42,0.35)] transition hover:-translate-y-0.5 hover:border-slate-300 hover:bg-slate-50"

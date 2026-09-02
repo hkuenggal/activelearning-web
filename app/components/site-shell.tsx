@@ -20,14 +20,22 @@ const scheduleLinks = [
   { label: "ENGG2202", href: "/engg2202/schedule" },
 ];
 
+const engg1101Links = [
+  { label: "Course Page", href: "/engg1101" },
+  { label: "Workshop Materials", href: "/engg1101/workshop" },
+];
+
 export default function SiteShell({ children }: { children: ReactNode }) {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isEngg1101Open, setIsEngg1101Open] = useState(false);
   const [isScheduleOpen, setIsScheduleOpen] = useState(false);
   const pathname = usePathname();
   const router = useRouter();
 
   useEffect(() => {
     setIsMobileMenuOpen(false);
+    setIsEngg1101Open(false);
+    setIsScheduleOpen(false);
   }, [pathname]);
 
   useEffect(() => {
@@ -98,24 +106,44 @@ export default function SiteShell({ children }: { children: ReactNode }) {
 
           <nav className="hidden min-w-0 flex-1 justify-center lg:flex">
             <ul className="flex items-center gap-6 text-sm font-semibold text-slate-800 xl:gap-8">
-              {navigation.slice(0, 3).map((item) => (
-                <li key={item.href}>
-                  {item.href.startsWith("http") ? (
-                    <a
-                      href={item.href}
-                      className="transition-colors hover:text-slate-950"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                    >
-                      {item.label}
-                    </a>
-                  ) : (
-                    <Link href={item.href} className="transition-colors hover:text-slate-950" onClick={(event) => handleNavClick(event, item.href)}>
-                      {item.label}
-                    </Link>
-                  )}
-                </li>
-              ))}
+              <li key={navigation[0].href}>
+                <Link href={navigation[0].href} className="transition-colors hover:text-slate-950" onClick={(event) => handleNavClick(event, navigation[0].href)}>
+                  {navigation[0].label}
+                </Link>
+              </li>
+              <li className="group relative" onMouseEnter={() => setIsEngg1101Open(true)} onMouseLeave={() => setIsEngg1101Open(false)}>
+                <button
+                  type="button"
+                  onClick={() => setIsEngg1101Open((open) => !open)}
+                  onKeyDown={(event) => {
+                    if (event.key === "Escape") {
+                      setIsEngg1101Open(false);
+                    }
+                  }}
+                  className="inline-flex items-center gap-1 transition-colors hover:text-slate-950"
+                  aria-expanded={isEngg1101Open}
+                  aria-controls="engg1101-menu"
+                >
+                  ENGG1101
+                  <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" strokeWidth="1.8" className={`h-3.5 w-3.5 transition-transform ${isEngg1101Open ? "rotate-180" : ""}`} aria-hidden="true">
+                    <path d="m4 6 4 4 4-4" />
+                  </svg>
+                </button>
+                {isEngg1101Open ? (
+                  <div id="engg1101-menu" className="absolute left-1/2 top-full z-50 w-56 -translate-x-1/2 rounded-xl border border-slate-200 bg-white p-2 shadow-[0_18px_40px_-20px_rgba(15,23,42,0.28)]">
+                    {engg1101Links.map((item) => (
+                      <Link key={item.href} href={item.href} onClick={() => setIsEngg1101Open(false)} className="block rounded-lg px-3 py-2.5 text-sm font-semibold text-slate-800 transition hover:bg-cyan-50 hover:text-cyan-950">
+                        {item.label}
+                      </Link>
+                    ))}
+                  </div>
+                ) : null}
+              </li>
+              <li key={navigation[2].href}>
+                <Link href={navigation[2].href} className="transition-colors hover:text-slate-950" onClick={(event) => handleNavClick(event, navigation[2].href)}>
+                  {navigation[2].label}
+                </Link>
+              </li>
               <li className="group relative" onMouseEnter={() => setIsScheduleOpen(true)} onMouseLeave={() => setIsScheduleOpen(false)}>
                 <button
                   type="button"
@@ -235,29 +263,36 @@ export default function SiteShell({ children }: { children: ReactNode }) {
           <div id="mobile-nav-menu" className="border-t border-slate-200/80 bg-white px-4 py-3 sm:px-8 lg:hidden">
             <nav aria-label="Mobile navigation">
               <ul className="grid gap-2">
-                {navigation.slice(0, 3).map((item) => (
-                  <li key={`mobile-${item.href}`}>
-                    {item.href.startsWith("http") ? (
-                      <a
-                        href={item.href}
-                        className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        onClick={() => setIsMobileMenuOpen(false)}
-                      >
-                        {item.label}
-                      </a>
-                    ) : (
-                      <Link
-                        href={item.href}
-                        className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
-                        onClick={(event) => handleNavClick(event, item.href)}
-                      >
-                        {item.label}
-                      </Link>
-                    )}
-                  </li>
-                ))}
+                <li key={`mobile-${navigation[0].href}`}>
+                  <Link
+                    href={navigation[0].href}
+                    className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
+                    onClick={(event) => handleNavClick(event, navigation[0].href)}
+                  >
+                    {navigation[0].label}
+                  </Link>
+                </li>
+                <li className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
+                  <p className="text-sm font-semibold text-slate-800">ENGG1101</p>
+                  <ul className="mt-2 grid gap-1 border-l border-slate-200 pl-3">
+                    {engg1101Links.map((item) => (
+                      <li key={`mobile-${item.href}`}>
+                        <Link href={item.href} className="block py-1.5 text-sm font-semibold text-cyan-800 transition hover:text-cyan-950" onClick={() => setIsMobileMenuOpen(false)}>
+                          {item.label}
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </li>
+                <li key={`mobile-${navigation[2].href}`}>
+                  <Link
+                    href={navigation[2].href}
+                    className="block rounded-xl px-3 py-2 text-sm font-semibold text-slate-800 transition hover:bg-slate-100"
+                    onClick={(event) => handleNavClick(event, navigation[2].href)}
+                  >
+                    {navigation[2].label}
+                  </Link>
+                </li>
                 <li className="rounded-xl border border-slate-200 bg-slate-50 px-3 py-2">
                   <p className="text-sm font-semibold text-slate-800">Schedule</p>
                   <ul className="mt-2 grid gap-1 border-l border-slate-200 pl-3">
