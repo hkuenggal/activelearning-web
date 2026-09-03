@@ -23,7 +23,7 @@ const scheduleLinks = [
 const engg1101Links = [
   { label: "Course Page", href: "/engg1101" },
   { label: "Workshop Materials", href: "/engg1101/workshop" },
-  { label: "Control Your Robot Arm", href: "http://localhost:3000/engg1101/robotic-arm-controller" },
+  { label: "Control Your Robot Arm", href: "https://activelearning.engg.hku.hk/engg1101/robotic-arm-controller" },
 ];
 
 export default function SiteShell({ children }: { children: ReactNode }) {
