@@ -419,24 +419,14 @@ export default function Engg1101Page() {
               </Link>
             </div>
 
-            <div className="mx-auto w-full max-w-sm" aria-hidden="true">
-              <div className="rounded-[1.75rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-sm sm:p-7">
-                <div className="grid aspect-square grid-cols-3 gap-2 sm:gap-3">
-                  {["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue"].map((color, index) => (
-                    <div
-                      key={`${color}-${index}`}
-                      className={`rounded-xl border border-white/15 ${
-                        color === "blue"
-                          ? "bg-blue-500/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
-                          : "bg-red-500/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <p className="mt-5 text-center text-xs font-semibold uppercase tracking-[0.28em] text-white/70">
-                  Three in a row wins
-                </p>
-              </div>
+            <div className="relative mx-auto aspect-[3/2] w-full max-w-xl overflow-hidden rounded-[1.75rem] border border-white/15 bg-slate-950 shadow-2xl">
+              <Image
+                src={imagePath("/images/Course/roboarm_contest_2026_27.png")}
+                alt="ROBOARM Contest 2026/27 competition field with blue and red robotic arms"
+                fill
+                sizes="(max-width: 1024px) 100vw, 40vw"
+                className="object-contain"
+              />
             </div>
           </div>
         </motion.section>
