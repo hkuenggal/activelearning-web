@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import SiteShell from "../../components/site-shell";
 import { imagePath as assetPath } from "../../lib/image-path";
 import ContestFaq from "./contest-faq";
@@ -15,13 +16,9 @@ const rulebookPath = assetPath(
 const introductionVideoPath = assetPath(
   "/media/Domination_of_the_Nine_Squares_Introduction_v2.mp4",
 );
-
-const gameFacts = [
-  { value: "1 min", label: "Preparation Period" },
-  { value: "3 min", label: "Game Period" },
-  { value: "3 in a row", label: "Great Victory" },
-  { value: "Max 3", label: "Attack Tokens" },
-];
+const contestArtworkPath = assetPath(
+  "/images/Course/roboarm_contest_logo_2026_27.png",
+);
 
 export default function RoboarmContestPage() {
   return (
@@ -45,45 +42,20 @@ export default function RoboarmContestPage() {
               </p>
             </div>
 
-            <div className="mx-auto w-full max-w-sm" aria-hidden="true">
-              <div className="rotate-2 rounded-[2rem] border border-slate-200 bg-slate-950 p-6 shadow-2xl shadow-slate-900/15">
-                <div className="grid aspect-square grid-cols-3 gap-2.5">
-                  {["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue"].map((color, index) => (
-                    <div
-                      key={`${color}-${index}`}
-                      className={`rounded-xl ${
-                        color === "blue" ? "bg-blue-600" : "bg-red-600"
-                      }`}
-                    />
-                  ))}
-                </div>
-                <p className="mt-5 text-center text-xs font-semibold uppercase tracking-[0.3em] text-white/65">
-                  Dominate the rack
-                </p>
-              </div>
+            <div className="mx-auto w-full max-w-xl rounded-[2rem] border border-slate-200 bg-white p-3 shadow-2xl shadow-slate-900/10 sm:p-5">
+              <Image
+                src={contestArtworkPath}
+                alt="Domination of the Nine Squares contest artwork"
+                width={496}
+                height={304}
+                preload
+                className="h-auto w-full object-contain"
+              />
             </div>
           </div>
         </section>
 
         <div className="mx-auto max-w-7xl space-y-20 px-5 py-14 sm:px-8 sm:py-18 lg:px-12 lg:py-20">
-          <section aria-label="Game at a glance">
-            <div className="grid grid-cols-2 gap-3 lg:grid-cols-4">
-              {gameFacts.map((fact) => (
-                <div
-                  key={fact.label}
-                  className="rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-6"
-                >
-                  <p className="text-2xl font-semibold tracking-tight text-slate-950 sm:text-3xl">
-                    {fact.value}
-                  </p>
-                  <p className="mt-2 text-sm leading-5 text-slate-500">
-                    {fact.label}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </section>
-
           <section aria-labelledby="game-rules-introduction">
             <div className="mb-7">
               <p className="text-sm font-semibold uppercase tracking-[0.22em] text-blue-700">
