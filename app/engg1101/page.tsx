@@ -388,6 +388,59 @@ export default function Engg1101Page() {
           </div>
         </motion.section>
 
+        <motion.section
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+          transition={{ duration: 0.6 }}
+          variants={fadeIn}
+          whileHover={{ scale: 1.01, y: -2 }}
+          className="relative mt-10 overflow-hidden rounded-[2rem] border border-slate-700 bg-[linear-gradient(135deg,#111827_0%,#172554_55%,#450a0a_100%)] p-8 shadow-[0_24px_70px_-42px_rgba(15,23,42,0.75)] transition-transform duration-200 ease-out sm:p-10"
+        >
+          <div className="absolute -right-24 -top-24 h-64 w-64 rounded-full bg-blue-500/15 blur-3xl" />
+          <div className="absolute -bottom-24 left-1/2 h-56 w-56 rounded-full bg-red-500/15 blur-3xl" />
+
+          <div className="relative grid gap-10 lg:grid-cols-[1.15fr_0.85fr] lg:items-center">
+            <div className="space-y-5">
+              <p className="text-sm font-semibold uppercase tracking-[0.24em] text-blue-200">
+                ROBOARM Contest 2026/27
+              </p>
+              <h2 className="max-w-2xl text-3xl font-semibold tracking-tight text-white sm:text-4xl">
+                Domination of the Nine Squares
+              </h2>
+              <p className="max-w-2xl text-sm leading-7 text-slate-200 sm:text-base">
+                Learn the official game rules, competition procedures, scoring system and robot requirements for the ENGG1101 ROBOARM Contest 2026/27.
+              </p>
+              <Link
+                href="/engg1101/roboarm-contest-2026-27"
+                className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-sm transition hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
+              >
+                View Contest Rules
+              </Link>
+            </div>
+
+            <div className="mx-auto w-full max-w-sm" aria-hidden="true">
+              <div className="rounded-[1.75rem] border border-white/15 bg-white/10 p-5 shadow-2xl backdrop-blur-sm sm:p-7">
+                <div className="grid aspect-square grid-cols-3 gap-2 sm:gap-3">
+                  {["blue", "red", "blue", "red", "blue", "red", "blue", "red", "blue"].map((color, index) => (
+                    <div
+                      key={`${color}-${index}`}
+                      className={`rounded-xl border border-white/15 ${
+                        color === "blue"
+                          ? "bg-blue-500/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
+                          : "bg-red-500/75 shadow-[inset_0_1px_0_rgba(255,255,255,0.25)]"
+                      }`}
+                    />
+                  ))}
+                </div>
+                <p className="mt-5 text-center text-xs font-semibold uppercase tracking-[0.28em] text-white/70">
+                  Three in a row wins
+                </p>
+              </div>
+            </div>
+          </div>
+        </motion.section>
+
       </main>
     </SiteShell>
   );
