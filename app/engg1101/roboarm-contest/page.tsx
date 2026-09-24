@@ -6,6 +6,7 @@ import { imagePath } from "../../lib/image-path";
 import { questionFormEmbedUrl } from "./faq-data";
 import { FaqQuestionForm } from "./question-form";
 import { IntroductionSnakes } from "./introduction-snakes";
+import { ClickToPlayVideo } from "./click-to-play-video";
 
 export const metadata: Metadata = {
   title: "ROBOARM Contest 2026/27 | ENGG1101",
@@ -54,13 +55,13 @@ function SectionHeading({
 }
 
 export default function RoboArmContestPage() {
-  const heroBackdropUrl = imagePath("/images/Course/roboarm-hero-poster-bg-v2.png");
-  const dragonBattleUrl = imagePath("/images/Course/roboarm-hero-dragons-v2.png");
+  const heroBackdropUrl = imagePath("/images/Course/roboarm-hero-poster-bg-v2.webp");
+  const dragonBattleUrl = imagePath("/images/Course/roboarm-hero-dragons-v2.webp");
   const logoUrl = imagePath("/images/Course/roboarm_contest_logo_2026_27.png");
   const videoUrl = imagePath("/media/engg1101/roboarm-contest-introduction.mp4");
-  const posterUrl = imagePath("/images/Course/roboarm-contest-first-frame.png");
-  const blueSnakeUrl = imagePath("/images/Course/robot-snake-blue-transparent.png");
-  const redSnakeUrl = imagePath("/images/Course/robot-snake-red-transparent.png");
+  const posterUrl = imagePath("/images/Course/roboarm-contest-first-frame.webp");
+  const blueSnakeUrl = imagePath("/images/Course/robot-snake-blue-transparent.webp");
+  const redSnakeUrl = imagePath("/images/Course/robot-snake-red-transparent.webp");
   const pdfUrl = imagePath("/documents/engg1101/roboarm-contest-rules-v1.2.pdf");
   const faqPdfUrl = imagePath("/documents/engg1101/roboarm-contest-faq-v1.2.pdf");
 
@@ -87,6 +88,8 @@ export default function RoboArmContestPage() {
               alt=""
               fill
               sizes="(max-width: 640px) 180vw, (max-width: 1279px) 115vw"
+              loading="eager"
+              fetchPriority="high"
               className="object-contain object-center drop-shadow-[0_24px_24px_rgba(30,64,175,0.2)]"
             />
           </div>
@@ -140,6 +143,8 @@ export default function RoboArmContestPage() {
                   alt=""
                   fill
                   sizes="(max-width: 640px) 120vw, (max-width: 1024px) 105vw, 78vw"
+                  loading="eager"
+                  fetchPriority="high"
                   className="object-contain object-center"
                 />
               </div>
@@ -201,10 +206,7 @@ export default function RoboArmContestPage() {
           <section id="introduction-video" className="mx-auto max-w-6xl scroll-mt-28 px-5 py-16 sm:px-8 sm:py-20 lg:px-12">
             <SectionHeading eyebrow="Watch" title="Game Rules Introduction" />
             <div className="border border-slate-200 bg-white p-3 shadow-[0_20px_60px_-35px_rgba(39,31,71,0.45)] sm:p-5">
-              <video className="aspect-video w-full bg-black" controls playsInline preload="metadata" poster={posterUrl}>
-                <source src={videoUrl} type="video/mp4" />
-                Your browser does not support embedded video. <a href={videoUrl}>Open the video directly.</a>
-              </video>
+              <ClickToPlayVideo posterUrl={posterUrl} videoUrl={videoUrl} />
             </div>
           </section>
 
@@ -215,9 +217,7 @@ export default function RoboArmContestPage() {
               <a href={pdfUrl} download className="inline-flex items-center justify-center border border-[#8bd3ef] bg-[#eefaff] px-6 py-3 text-sm font-bold text-sky-950 transition hover:-translate-y-0.5 hover:bg-[#d9f3fc]">Download PDF</a>
             </div>
             <div className="overflow-hidden border border-slate-300 bg-white shadow-[0_20px_60px_-35px_rgba(39,31,71,0.45)]">
-              <object data={pdfUrl} type="application/pdf" className="h-[72vh] min-h-[640px] w-full">
-                <div className="p-8 text-center text-sm text-slate-600">Your browser cannot display the PDF inline. <a href={pdfUrl} className="font-bold text-[#4f33aa] underline">Open the rulebook</a>.</div>
-              </object>
+              <iframe src={pdfUrl} title="Official ROBOARM Contest competition rules" loading="lazy" className="h-[72vh] min-h-[640px] w-full" />
             </div>
           </section>
 
@@ -248,9 +248,7 @@ export default function RoboArmContestPage() {
               </div>
 
               <div className="mb-12 overflow-hidden border border-slate-300 bg-white shadow-[0_20px_60px_-35px_rgba(39,31,71,0.45)]">
-                <object data={faqPdfUrl} type="application/pdf" className="h-[72vh] min-h-[640px] w-full">
-                  <div className="p-8 text-center text-sm text-slate-600">Your browser cannot display the PDF inline. <a href={faqPdfUrl} className="font-bold text-sky-800 underline">Open the FAQ PDF</a>.</div>
-                </object>
+                <iframe src={faqPdfUrl} title="Published ROBOARM Contest FAQ" loading="lazy" className="h-[72vh] min-h-[640px] w-full" />
               </div>
             </div>
           </section>
