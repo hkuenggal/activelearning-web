@@ -5,6 +5,17 @@ import type { FormEvent } from "react";
 const fieldClassName =
   "mt-2 h-12 w-full border border-sky-200 bg-white px-4 text-sm text-slate-950 outline-none transition placeholder:text-slate-400 focus:border-[#447fe0] focus:ring-2 focus:ring-[#447fe0]/15";
 
+const faqSections = [
+  "Game Field",
+  "Game Procedure",
+  "Scoring",
+  "Attack",
+  "Retries",
+  "Violations & Disqualifications",
+  "Robots & Safety",
+  "Others",
+] as const;
+
 export function FaqQuestionForm() {
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
@@ -50,9 +61,9 @@ export function FaqQuestionForm() {
           <input
             name="group"
             type="text"
-            placeholder="e.g. A1 or O8"
+            placeholder="e.g. A1"
             pattern="[A-Za-z][0-9]{1,2}"
-            title="Enter one subclass letter followed by the team number, for example A1 or O8."
+            title="Enter one subclass letter followed by the team number, for example A1."
             autoCapitalize="characters"
             spellCheck={false}
             required
@@ -63,13 +74,9 @@ export function FaqQuestionForm() {
           Category
           <select name="category" required defaultValue="" className={fieldClassName}>
             <option value="" disabled>Select a category</option>
-            <option>Game procedure</option>
-            <option>Scoring</option>
-            <option>Attack</option>
-            <option>Robot</option>
-            <option>Safety</option>
-            <option>Administration</option>
-            <option>Other</option>
+            {faqSections.map((section) => (
+              <option key={section}>{section}</option>
+            ))}
           </select>
         </label>
       </div>
