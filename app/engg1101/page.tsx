@@ -412,7 +412,7 @@ export default function Engg1101Page() {
                 Learn the official game rules, competition procedures, scoring system and robot requirements for the ENGG1101 ROBOARM Contest 2026/27.
               </p>
               <Link
-                href="/engg1101/roboarm-contest-2026-27"
+                href="/engg1101/roboarm-contest"
                 className="inline-flex items-center justify-center rounded-full bg-white px-5 py-3 text-sm font-semibold text-slate-950 shadow-sm transition hover:bg-blue-50 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-white"
               >
                 View Contest Rules

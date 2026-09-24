@@ -24,7 +24,7 @@ const engg1101Links = [
   { label: "Course Page", href: "/engg1101" },
   { label: "Workshop Materials", href: "/engg1101/workshop" },
   { label: "Control Your Robot Arm", href: "https://activelearning.engg.hku.hk/engg1101/robotic-arm-controller" },
-  { label: "ROBOARM Contest 2026/27", href: "/engg1101/roboarm-contest-2026-27" },
+  { label: "ROBOARM Contest", href: "/engg1101/roboarm-contest" },
 ];
 
 export default function SiteShell({ children }: { children: ReactNode }) {
